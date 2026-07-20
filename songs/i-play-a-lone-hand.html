@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#171c1b" />
+<meta name="description" content="I Play A Lone Hand — lyrics from the Reminiscences of a Stock Operator Jesse Livermore series soundtrack with Kenny Polcari and The Antediluvian." />
+<title>I Play A Lone Hand — Money Mythos</title>
+<style>
+:root {
+--ink: #171c1b;
+--paper: #f2f0e7;
+--lime: #e9f59b;
+--mint: #13b79b;
+--blue: #1747ff;
+--orange: #ff5a1f;
+--rose: #e083a0;
+--gold: #f1bc4a;
+--line: rgba(242,240,231,.2);
+--max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--ink);
+color: var(--paper);
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+text-rendering: geometricPrecision;
+}
+
+a { color: inherit; }
+::selection { background: var(--lime); color: var(--ink); }
+
+.progress {
+position: fixed;
+z-index: 100;
+inset: 0 auto auto 0;
+width: 100%;
+height: 5px;
+background: rgba(255,255,255,.08);
+}
+.progress > i {
+display: block;
+width: 0;
+height: 100%;
+background: linear-gradient(90deg, var(--orange), var(--lime), var(--mint));
+}
+
+.site-mark {
+position: fixed;
+z-index: 90;
+top: 22px;
+right: 22px;
+width: 46px;
+height: 46px;
+border: 1px solid rgba(255,255,255,.24);
+border-radius: 999px;
+display: grid;
+place-items: center;
+background: rgba(23,28,27,.65);
+backdrop-filter: blur(12px);
+text-decoration: none;
+font-weight: 900;
+letter-spacing: -.08em;
+}
+
+.all-songs-link {
+position: fixed;
+z-index: 90;
+top: 34px;
+left: 22px;
+font-size: .75rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .12em;
+color: var(--lime);
+text-decoration: none;
+}
+.all-songs-link:hover { color: var(--paper); }
+
+.hero {
+min-height: 100svh;
+position: relative;
+overflow: hidden;
+display: grid;
+align-items: end;
+padding: clamp(26px, 5vw, 72px);
+isolation: isolate;
+border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -3;
+background:
+radial-gradient(circle at 88% 8%, rgba(233,245,155,.95) 0 7%, transparent 7.2%),
+radial-gradient(circle at 82% 18%, rgba(19,183,155,.75) 0 12%, transparent 12.2%),
+linear-gradient(135deg, transparent 0 47%, var(--orange) 47.2% 52%, transparent 52.2%),
+linear-gradient(155deg, transparent 0 63%, var(--blue) 63.2% 73%, transparent 73.2%),
+linear-gradient(20deg, var(--rose) 0 12%, transparent 12.2%),
+var(--ink);
+}
+
+.hero::after {
+content: "";
+position: absolute;
+z-index: -2;
+width: 68vw;
+height: 68vw;
+max-width: 820px;
+max-height: 820px;
+right: -22vw;
+bottom: -38vw;
+border: clamp(50px, 7vw, 110px) solid var(--mint);
+border-radius: 50%;
+opacity: .85;
+}
+
+.hero-inner { max-width: var(--max); width: 100%; margin: 0 auto; }
+.eyebrow {
+margin: 0 0 2rem;
+font-size: clamp(.72rem, 1.2vw, .95rem);
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: .18em;
+color: var(--lime);
+}
+
+h1 {
+margin: 0;
+max-width: 10ch;
+font-size: clamp(4.8rem, 14vw, 12.5rem);
+line-height: .77;
+letter-spacing: -.085em;
+text-transform: uppercase;
+font-weight: 900;
+}
+h1 span { display: block; }
+h1 .middle { margin-left: .7ch; }
+h1 .last { margin-left: 1.4ch; }
+
+.hero-meta {
+margin-top: clamp(38px, 6vw, 80px);
+display: grid;
+grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr);
+gap: 30px;
+align-items: end;
+max-width: 980px;
+}
+.hero-meta p {
+margin: 0;
+max-width: 52ch;
+font-size: clamp(1.05rem, 2vw, 1.5rem);
+line-height: 1.35;
+}
+.credits {
+border-left: 4px solid var(--lime);
+padding-left: 18px;
+font-size: .78rem !important;
+line-height: 1.5 !important;
+text-transform: uppercase;
+letter-spacing: .08em;
+font-weight: 800;
+}
+
+.band {
+background: var(--blue);
+color: white;
+padding: clamp(54px, 9vw, 118px) clamp(24px, 5vw, 72px);
+position: relative;
+overflow: hidden;
+}
+.band::after {
+content: "";
+position: absolute;
+width: 390px;
+height: 390px;
+right: -160px;
+top: -180px;
+border-radius: 48% 52% 61% 39% / 43% 37% 63% 57%;
+background: var(--orange);
+transform: rotate(28deg);
+}
+.band-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+.band small {
+display: block;
+font-weight: 800;
+letter-spacing: .16em;
+text-transform: uppercase;
+margin-bottom: 26px;
+}
+.band p {
+margin: 0;
+max-width: 18ch;
+font-size: clamp(2.6rem, 6.5vw, 6.6rem);
+line-height: .93;
+letter-spacing: -.055em;
+font-weight: 500;
+}
+.band p strong { color: var(--lime); font-weight: 500; }
+.band p em { color: var(--rose); font-style: normal; }
+
+.quote-panel {
+background: var(--rose);
+color: var(--ink);
+padding: clamp(70px, 11vw, 150px) clamp(24px, 5vw, 72px);
+position: relative;
+overflow: hidden;
+}
+.quote-panel::before,
+.quote-panel::after {
+content: "";
+position: absolute;
+width: 250px;
+height: 500px;
+background: var(--mint);
+border-radius: 50%;
+transform: rotate(58deg);
+opacity: .9;
+}
+.quote-panel::before { left: -160px; top: -180px; }
+.quote-panel::after { right: -190px; bottom: -220px; background: var(--blue); }
+blockquote {
+max-width: 1020px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+font-size: clamp(2.1rem, 5.5vw, 5.6rem);
+line-height: 1.02;
+letter-spacing: -.05em;
+font-weight: 700;
+}
+blockquote footer {
+margin-top: 34px;
+font-size: clamp(.72rem, 1.3vw, 1rem);
+line-height: 1.45;
+text-transform: uppercase;
+letter-spacing: .12em;
+font-weight: 900;
+}
+
+.lyrics-wrap {
+position: relative;
+background:
+linear-gradient(110deg, transparent 0 72%, rgba(233,245,155,.06) 72.1% 100%),
+var(--ink);
+padding: clamp(72px, 9vw, 120px) clamp(24px, 5vw, 72px) 0;
+}
+.lyrics-head {
+max-width: var(--max);
+margin: 0 auto clamp(28px, 5vw, 48px);
+display: grid;
+grid-template-columns: .6fr 1.4fr;
+gap: 40px;
+align-items: start;
+}
+.lyrics-head .label {
+font-size: .78rem;
+line-height: 1.5;
+text-transform: uppercase;
+letter-spacing: .16em;
+font-weight: 900;
+color: var(--mint);
+}
+.lyrics-head h2 {
+margin: 0;
+font-size: clamp(3.2rem, 9vw, 9rem);
+line-height: .82;
+letter-spacing: -.08em;
+text-transform: uppercase;
+}
+
+.lyrics-toolbar {
+max-width: var(--max);
+margin: 0 auto clamp(40px, 6vw, 70px);
+display: flex;
+align-items: center;
+gap: 0.9rem;
+flex-wrap: wrap;
+}
+.lyrics-toolbar button {
+background: transparent;
+border: 1.5px solid var(--lime);
+color: var(--lime);
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: .72rem;
+font-weight: 800;
+letter-spacing: .1em;
+text-transform: uppercase;
+padding: .55rem 1rem;
+cursor: pointer;
+border-radius: 3px;
+}
+.lyrics-toolbar button:hover { background: var(--lime); color: var(--ink); }
+.lyrics-save-status {
+font-size: .72rem;
+letter-spacing: .08em;
+text-transform: uppercase;
+opacity: .6;
+}
+
+.lyrics {
+max-width: var(--max);
+margin: 0 auto;
+}
+.stanza {
+min-height: 82svh;
+padding: clamp(50px, 7vw, 90px) 0;
+border-top: 1px solid var(--line);
+display: grid;
+grid-template-columns: minmax(120px, .38fr) minmax(0, 1.62fr);
+gap: clamp(24px, 5vw, 80px);
+align-items: start;
+}
+.section-tag {
+position: sticky;
+top: 42px;
+color: var(--lime);
+font-size: clamp(.72rem, 1.2vw, .95rem);
+text-transform: uppercase;
+letter-spacing: .17em;
+font-weight: 900;
+}
+.lyric-lines {
+font-size: clamp(2.1rem, 5.2vw, 5.55rem);
+line-height: 1.05;
+letter-spacing: -.045em;
+font-weight: 500;
+}
+.lyric-lines p { margin: 0 0 .95em; outline: none; border-radius: 4px; }
+.lyric-lines p[contenteditable="true"]:hover { background: rgba(242,240,231,.06); }
+.lyric-lines p[contenteditable="true"]:focus { background: rgba(242,240,231,.1); }
+.lyric-lines .accent { color: var(--mint); }
+.lyric-lines .ghost { color: rgba(242,240,231,.43); }
+.lyric-lines .whisper { font-size: .72em; color: var(--lime); letter-spacing: -.02em; }
+
+.finale {
+margin-top: clamp(30px, 6vw, 80px);
+min-height: 78svh;
+display: grid;
+place-items: center;
+text-align: center;
+padding: 80px 24px;
+background:
+radial-gradient(circle at 10% 0%, var(--orange) 0 8%, transparent 8.2%),
+radial-gradient(circle at 100% 100%, var(--mint) 0 20%, transparent 20.2%),
+var(--blue);
+overflow: hidden;
+}
+.finale h2 {
+margin: 0;
+max-width: 8ch;
+font-size: clamp(4.4rem, 13vw, 12rem);
+line-height: .78;
+letter-spacing: -.09em;
+text-transform: uppercase;
+}
+.finale p {
+margin: 34px 0 0;
+font-size: clamp(.75rem, 1.4vw, 1rem);
+line-height: 1.6;
+text-transform: uppercase;
+letter-spacing: .13em;
+font-weight: 900;
+}
+
+.footer {
+background: #243e90;
+padding: 40px clamp(24px, 5vw, 72px);
+color: white;
+}
+.footer-inner {
+max-width: var(--max);
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+gap: 20px;
+align-items: center;
+font-size: .75rem;
+text-transform: uppercase;
+letter-spacing: .12em;
+font-weight: 800;
+}
+
+@media (max-width: 760px) {
+.hero { min-height: 92svh; }
+.hero-meta, .lyrics-head, .stanza { grid-template-columns: 1fr; }
+h1 { font-size: clamp(4rem, 23vw, 7rem); }
+.hero-meta { gap: 24px; }
+.credits { max-width: 34ch; }
+.lyrics-head { gap: 18px; }
+.stanza { min-height: auto; gap: 24px; padding: 52px 0 72px; }
+.section-tag { position: static; }
+.lyric-lines { font-size: clamp(2rem, 9.5vw, 3.45rem); }
+.footer-inner { align-items: flex-start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+<a class="all-songs-link" href="../index.html">&larr; All Songs</a>
+<a class="site-mark" href="#top" aria-label="Back to top">LH</a>
+
+<main id="top">
+<header class="hero">
+<div class="hero-inner">
+<p class="eyebrow">Stock Operator &middot; Series Soundtrack &middot; Track 05</p>
+<h1 aria-label="I Play A Lone Hand">
+<span>I Play</span>
+<span class="middle">A Lone</span>
+<span class="last">Hand</span>
+</h1>
+<div class="hero-meta">
+<p>A song from the <em>Reminiscences of a Stock Operator</em> Jesse Livermore series soundtrack.</p>
+<p class="credits">With Kenny Polcari<br />and The Antediluvian</p>
+</div>
+</div>
+</header>
+
+<section class="band" aria-labelledby="story-label">
+<div class="band-inner">
+<small id="story-label">The setup</small>
+<p>They call it a <strong>Bucket Shop.</strong><br />He calls it <em>the ATM.</em></p>
+</div>
+</section>
+
+<section class="quote-panel" aria-label="Source quotation">
+<blockquote>
+&ldquo;My business has always been a one-man affair. That is why I always played a lone hand.&rdquo;
+<footer>&mdash; <cite>Reminiscences of a Stock Operator</cite></footer>
+</blockquote>
+</section>
+
+<section class="lyrics-wrap" aria-labelledby="lyrics-title">
+<div class="lyrics-head">
+<div class="label">Complete song lyrics</div>
+<h2 id="lyrics-title">Drop the needle.</h2>
+</div>
+
+<div class="lyrics-toolbar">
+<button id="exportBtn" type="button">Export corrected text</button>
+<button id="resetBtn" type="button">Reset to original</button>
+<span id="saveStatus" class="lyrics-save-status"></span>
+</div>
+
+<div class="lyrics">
+<article class="stanza">
+<div class="section-tag">Intro</div>
+<div class="lyric-lines">
+<p>They call it a Bucket Shop<br />I call it&hellip; the ATM</p>
+<p>Yeah<br />Look at &rsquo;em</p>
+<p class="accent">Loud suits, big cigars.</p>
+<p>They don&rsquo;t see the kid in the corner<br />They don&rsquo;t see the Gray Man coming</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Verse I</div>
+<div class="lyric-lines">
+<p>I walk into the parlor with a baby face<br />Just another lamb in a hungry place</p>
+<p>I wear a gray coat, I wear a soft shoe<br />I don&rsquo;t make a sound when I&rsquo;m watching you</p>
+<p>The manager thinks I&rsquo;m a piker<br />A greenhorn fresh off the plow</p>
+<p class="accent">He&rsquo;s counting my money before I even bow</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Pre-Chorus</div>
+<div class="lyric-lines">
+<p>But I got the Dope Book, baby<br />I got the math in my mind</p>
+<p>I leave the noise and the panic far behind</p>
+<p>I don&rsquo;t need a partner<br />I don&rsquo;t need a friend</p>
+<p class="accent">I don&rsquo;t need a tip on the dividend</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Chorus</div>
+<div class="lyric-lines">
+<p class="accent">I play a Lone Hand</p>
+<p>I&rsquo;m a one-man business on the telephone<br />I beat the House without raising my voice</p>
+<p>I take the tin-horn money by a gentleman&rsquo;s choice</p>
+<p>I&rsquo;m the Ringer<br />The Ghost<br />The Shadow in the room</p>
+<p>Sweeping up the profit with a velvet broom</p>
+<p class="accent">Yeah, I play a Lone Hand</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Verse II</div>
+<div class="lyric-lines">
+<p>They&rsquo;re screaming at the ticker.<br />They&rsquo;re tearing the tape</p>
+<p>Trying to find a way to make a quick escape</p>
+<p>But I saw the panic three points ago<br />I&rsquo;m shorting the Steel while the flow is slow</p>
+<p>I copper the bet.<br />I whipsaw the trade</p>
+<p class="accent">The easiest thousand that I ever made</p>
+<p>You call it gambling?<br />Baby, that&rsquo;s a lie.</p>
+<p>It&rsquo;s just probability passing you by</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Bridge</div>
+<div class="lyric-lines">
+<p class="whisper">Shhh.</p>
+<p>Listen to the machine.<br />It talks to me.</p>
+<p class="ghost">It says&hellip;</p>
+<p class="accent">&ldquo;Sell.&rdquo;</p>
+<p class="ghost">It says&hellip;</p>
+<p class="accent">&ldquo;Plunge.&rdquo;</p>
+<p>I don&rsquo;t want the fame.<br />I don&rsquo;t want the light.</p>
+<p>I just want to fade back into the night.</p>
+<p class="accent">With your money in my pocket.</p>
+</div>
+</article>
+
+<article class="stanza">
+<div class="section-tag">Final Chorus</div>
+<div class="lyric-lines">
+<p class="accent">I play a Lone Hand</p>
+<p>I&rsquo;m a one-man business on the telephone<br />I beat the House without raising my voice</p>
+<p>I take the tin-horn money by a gentleman&rsquo;s choice</p>
+<p>I&rsquo;m the Ringer<br />The Ghost<br />The Shadow in the room</p>
+<p>Sweeping up the profit with a velvet broom</p>
+</div>
+</article>
+</div>
+</section>
+
+<section class="finale" aria-label="Closing title">
+<div>
+<h2>I Play A Lone Hand</h2>
+<p>Reminiscences of a Stock Operator<br />Jesse Livermore Series Soundtrack<br />Kenny Polcari &times; The Antediluvian</p>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="footer-inner">
+<span>Money Mythos</span>
+<a href="../index.html" style="text-decoration:none;opacity:.6">&#8592; All Songs</a>
+</div>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+const updateProgress = () => {
+const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+bar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+};
+addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+</script>
+
+<script>
+(function () {
+const storageKey = 'mm-lyrics-i-play-a-lone-hand';
+const lines = Array.from(document.querySelectorAll('.lyric-lines p'));
+const saveStatus = document.getElementById('saveStatus');
+
+let saved = null;
+try {
+saved = JSON.parse(localStorage.getItem(storageKey));
+} catch (e) {
+saved = null;
+}
+
+lines.forEach((p, i) => {
+p.contentEditable = 'true';
+p.spellcheck = false;
+if (saved && typeof saved[i] === 'string') {
+p.innerHTML = saved[i];
+}
+p.addEventListener('input', debounceSave);
+});
+
+if (saved) saveStatus.textContent = 'showing your saved edits';
+
+let saveTimer = null;
+function debounceSave() {
+clearTimeout(saveTimer);
+saveStatus.textContent = 'editing…';
+saveTimer = setTimeout(() => {
+const html = lines.map((p) => p.innerHTML.trim());
+localStorage.setItem(storageKey, JSON.stringify(html));
+saveStatus.textContent = 'saved to this browser';
+}, 500);
+}
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+const texts = lines.map((p) => p.innerText.trim());
+const blob = new Blob([texts.join('\n') + '\n'], { type: 'text/plain' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'i-play-a-lone-hand-lyrics.txt';
+document.body.appendChild(a);
+a.click();
+a.remove();
+URL.revokeObjectURL(url);
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+if (!confirm('Reset to the original lyrics? Your edits in this browser will be cleared.')) return;
+localStorage.removeItem(storageKey);
+location.reload();
+});
+})();
+</script>
+</body>
+</html>

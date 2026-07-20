@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coca-Cola Dividends — Money Mythos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080807;--surface:#101010;--border:rgba(255,255,255,0.08);
+  --text:#ede8df;--muted:#6b6560;--gold:#c9b98a;
+  --accent:#8C1C1C;
+  --f-serif:'Cormorant Garamond',Georgia,serif;
+  --f-mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--f-serif);-webkit-font-smoothing:antialiased}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;background:rgba(8,8,7,0.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-back{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--text)}
+.nav-logo{font-family:var(--f-mono);font-size:12px;letter-spacing:4px;color:var(--gold);text-decoration:none}
+.nav-num{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted)}
+
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:120px 40px 80px;
+  border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'04';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--f-mono);font-size:clamp(200px,40vw,500px);
+  letter-spacing:-0.05em;color:rgba(255,255,255,0.025);
+  line-height:1;white-space:nowrap;pointer-events:none;user-select:none;
+}
+.hero-accent{width:48px;height:2px;background:var(--accent);margin-bottom:32px}
+.hero-type{font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.hero-title{
+  font-family:var(--f-serif);font-size:clamp(42px,7vw,96px);
+  font-weight:700;line-height:1.0;color:var(--text);margin-bottom:24px;
+}
+.hero-sub{font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:clamp(16px,2vw,22px);color:var(--muted)}
+
+.body-wrap{max-width:600px;margin:0 auto;padding:100px 40px 120px}
+
+.lyrics{}
+.stanza{margin-bottom:48px}
+.stanza:last-child{margin-bottom:0}
+
+.line{
+  display:block;
+  font-family:var(--f-serif);font-size:clamp(20px,3.5vw,34px);
+  font-weight:300;line-height:1.6;color:var(--text);
+}
+.line.chorus{
+  font-weight:700;font-size:clamp(24px,4.5vw,44px);
+  color:var(--text);
+}
+.line.italic{font-style:italic;color:rgba(237,232,223,0.65)}
+.line.small{font-size:clamp(14px,2vw,20px);color:var(--muted)}
+.line.price{font-family:var(--f-mono);font-size:clamp(18px,3vw,28px);color:var(--accent);letter-spacing:0.05em}
+
+.chorus-block{
+  border-left:2px solid var(--accent);padding-left:24px;
+  margin:16px 0;
+}
+
+.section-break{
+  display:flex;align-items:center;gap:16px;margin:56px 0;
+}
+.section-break::before,.section-break::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-break-inner{font-family:var(--f-mono);font-size:8px;letter-spacing:3px;color:var(--muted);text-transform:uppercase}
+
+.song-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:32px 40px;border-top:1px solid var(--border);
+}
+.song-nav a{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color 0.2s}
+.song-nav a:hover{color:var(--text)}
+.song-nav-center{font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:rgba(107,101,96,0.4)}
+
+footer{text-align:center;padding:48px 40px;border-top:1px solid var(--border)}
+.footer-logo{font-family:var(--f-mono);font-size:10px;letter-spacing:5px;color:var(--muted);display:block;margin-bottom:8px}
+.footer-sub{font-family:var(--f-serif);font-style:italic;font-size:13px;color:rgba(107,101,96,0.5)}
+
+@media(max-width:640px){
+  nav,footer{padding-left:20px;padding-right:20px}
+  .hero{padding:100px 20px 60px}
+  .body-wrap{padding:60px 20px 80px}
+  .song-nav{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-back">← All Songs</a>
+  <a href="../index.html" class="nav-logo">MM</a>
+  <span class="nav-num">04 / 08</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-accent"></div>
+  <p class="hero-type">Song</p>
+  <h1 class="hero-title">The Coca-Cola<br>Dividends</h1>
+  <p class="hero-sub">On Patience · On the Long View</p>
+</section>
+
+<article class="body-wrap">
+  <div class="lyrics">
+
+    <div class="stanza">
+      <span class="line">In 1919, the Great War is over.</span>
+      <span class="line price">Coca-Cola just went public at $40 a share.</span>
+      <span class="line">Then the sugar market collapses.</span>
+      <span class="line price">Stock crashes to $19.</span>
+      <span class="line">Wall Street calls it a disaster.</span>
+      <span class="line">But in a tiny farm town —</span>
+      <span class="line italic">a back-road market man sees something else.</span>
+      <span class="line italic">He sees a nickel habit that won't quit.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line chorus">This is a nickel habit that won't let go.</span>
+    </div>
+
+    <div class="section-break"><span class="section-break-inner">Verse</span></div>
+
+    <div class="stanza">
+      <span class="line">We go to work, we got no big break —</span>
+      <span class="line">the sun burns through another day.</span>
+      <span class="line">Lord knows the heavy load,</span>
+      <span class="line">the banks go round.</span>
+      <span class="line">In this heat, in this slow grind,</span>
+      <span class="line">there's one small way round.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line italic">The nickel they won't let go —</span>
+      <span class="line italic">it's a steel-cold certainty.</span>
+      <span class="line italic">A spell they've got.</span>
+      <span class="line italic">When every cell says no more,</span>
+      <span class="line italic">they'll steal just one cold shot.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">The little stream of paper grows.</span>
+      <span class="line">Doors collect, windows close.</span>
+      <span class="line">But they can't quit the habit —</span>
+      <span class="line">so it lives out there on the road.</span>
+    </div>
+
+    <div class="section-break"><span class="section-break-inner">Chorus</span></div>
+
+    <div class="stanza">
+      <div class="chorus-block">
+        <span class="line chorus">Buy the stock, oldest dream —</span>
+        <span class="line chorus">turn that bottle to a long-term thing.</span>
+        <span class="line">When the ground runs dry,</span>
+        <span class="line">when the work runs thin,</span>
+        <span class="line chorus">the dividends will flow.</span>
+        <span class="line">And when you buy the stock</span>
+        <span class="line">you buy the minutes</span>
+        <span class="line">where your troubles don't show.</span>
+      </div>
+    </div>
+
+    <div class="section-break"><span class="section-break-inner">Verse</span></div>
+
+    <div class="stanza">
+      <span class="line">You got nothing, but that ain't no way.</span>
+      <span class="line chorus">You got a nickel for a Coke, don't you?</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">I've been at this window with leather and pain,</span>
+      <span class="line">watching every broke man</span>
+      <span class="line">walk out holding something.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">Dollars on the day — but you can't ignore:</span>
+      <span class="line">when they've got to have it, all that thirst,</span>
+      <span class="line italic">we want more.</span>
+      <span class="line">Sugar market crash? Yet the ticker's looking real.</span>
+      <span class="line">The price got cut in half —</span>
+      <span class="line italic">but the habit is the deal.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line italic">Long term. Good night again.</span>
+      <span class="line italic">Long term. Good night with big gains.</span>
+    </div>
+
+    <div class="section-break"><span class="section-break-inner">Bridge</span></div>
+
+    <div class="stanza">
+      <span class="line">We didn't strike oil.</span>
+      <span class="line">We didn't mine gold.</span>
+      <span class="line chorus">We bought an old story</span>
+      <span class="line chorus">that never got old.</span>
+      <span class="line">Plain-based, iron-sure, and wouldn't change.</span>
+      <span class="line italic">Let the years whisper: millionaires.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">Next in line — what do you need?</span>
+      <span class="line">Farm it home on a little seed.</span>
+      <span class="line">Moving on — one share more.</span>
+      <span class="line">Time's right here, we keep the score.</span>
+      <span class="line">One share's enough to start the spin —</span>
+      <span class="line italic">let the years do what they know.</span>
+    </div>
+
+    <div class="section-break"><span class="section-break-inner">Outro</span></div>
+
+    <div class="stanza">
+      <div class="chorus-block">
+        <span class="line chorus">We didn't strike oil, we didn't mine gold.</span>
+        <span class="line chorus">We bought an old story, and never got old.</span>
+        <span class="line">Plain-based, iron-sure, and wouldn't change.</span>
+        <span class="line">Let the years whisper millionaires.</span>
+      </div>
+    </div>
+
+    <div class="stanza">
+      <span class="line italic">Trust the habit.</span>
+      <span class="line italic">From the nickel you can't let go.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line small">Hey, yo.</span>
+    </div>
+
+  </div>
+</article>
+
+<nav class="song-nav">
+  <a href="odysseus-and-the-sirens.html">← Previous</a>
+  <span class="song-nav-center">04 of 08</span>
+  <a href="i-play-a-lone-hand.html">Next →</a>
+</nav>
+
+<footer>
+  <span class="footer-logo">MONEY MYTHOS</span>
+  <p class="footer-sub">with Kenneth Polcari</p>
+</footer>
+
+</body>
+</html>

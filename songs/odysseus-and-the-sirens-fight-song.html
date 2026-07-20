@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#35B8AE" />
+<title>Odysseus and the Sirens Fight Song — Money Mythos</title>
+<style>
+:root {
+--bg: #35B8AE;
+--ink: #0F221F;
+--line: rgba(15,34,31,.18);
+--max: 1100px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--ink);
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+::selection { background: var(--ink); color: var(--bg); }
+
+.progress {
+position: fixed;
+z-index: 100;
+inset: 0 auto auto 0;
+width: 100%;
+height: 4px;
+background: rgba(15,34,31,.15);
+}
+.progress > i {
+display: block;
+width: 0;
+height: 100%;
+background: var(--ink);
+}
+
+.all-songs-link {
+position: fixed;
+z-index: 90;
+top: 30px;
+left: 28px;
+font-size: .72rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .14em;
+color: var(--ink);
+text-decoration: none;
+opacity: .65;
+}
+.all-songs-link:hover { opacity: 1; }
+
+.hero {
+min-height: 100svh;
+display: grid;
+align-items: end;
+padding: clamp(80px, 10vw, 140px) clamp(28px, 6vw, 80px) clamp(60px, 8vw, 100px);
+border-bottom: 1px solid var(--line);
+}
+.hero-inner { max-width: var(--max); width: 100%; margin: 0 auto; }
+.eyebrow {
+margin: 0 0 1.6rem;
+font-size: clamp(.7rem, 1.1vw, .9rem);
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .2em;
+opacity: .5;
+}
+h1 {
+margin: 0;
+font-size: clamp(3.4rem, 10vw, 9.5rem);
+line-height: .82;
+letter-spacing: -.07em;
+font-weight: 900;
+text-transform: uppercase;
+}
+.subtitle {
+display: block;
+margin-top: 2rem;
+font-size: clamp(.8rem, 1.4vw, 1.15rem);
+font-weight: 800;
+letter-spacing: .12em;
+text-transform: uppercase;
+opacity: .55;
+}
+
+.lyrics-section {
+padding: clamp(80px, 10vw, 130px) clamp(28px, 6vw, 80px);
+max-width: 820px;
+margin: 0 auto;
+}
+.section-label {
+font-size: .72rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .18em;
+opacity: .4;
+margin-bottom: 2.8rem;
+}
+.passage {
+margin-bottom: clamp(40px, 6vw, 70px);
+}
+.passage:last-child { margin-bottom: 0; }
+.pass-line {
+display: block;
+font-size: clamp(1.5rem, 3.6vw, 3.2rem);
+line-height: 1.22;
+letter-spacing: -.03em;
+font-weight: 400;
+margin-bottom: .1em;
+}
+.pass-line.bold { font-weight: 900; }
+.pass-line.faded { opacity: .45; }
+.pass-line.sm { font-size: clamp(1.1rem, 2.4vw, 2rem); opacity: .6; }
+
+.divider {
+height: 1px;
+background: var(--line);
+margin: clamp(48px, 7vw, 80px) 0;
+}
+
+.section-head {
+font-size: .72rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .18em;
+opacity: .4;
+margin: 0 0 2rem;
+}
+
+.finale {
+padding: clamp(80px, 12vw, 160px) clamp(28px, 6vw, 80px);
+text-align: center;
+border-top: 1px solid var(--line);
+}
+.finale h2 {
+margin: 0;
+font-size: clamp(2rem, 7vw, 7.5rem);
+line-height: .84;
+letter-spacing: -.07em;
+font-weight: 900;
+text-transform: uppercase;
+}
+.finale p {
+margin: 2rem 0 0;
+font-size: clamp(.7rem, 1.2vw, .9rem);
+text-transform: uppercase;
+letter-spacing: .14em;
+font-weight: 800;
+opacity: .5;
+}
+
+@media (max-width: 680px) {
+h1 { font-size: clamp(3rem, 16vw, 5.5rem); }
+.pass-line { font-size: clamp(1.3rem, 7vw, 2.2rem); }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+<a class="all-songs-link" href="../index.html">&larr; All Songs</a>
+
+<header class="hero">
+<div class="hero-inner">
+<p class="eyebrow">Money Mythos · Track 08</p>
+<h1>Odysseus<br>and the<br>Sirens<br>Fight Song</h1>
+<span class="subtitle">Lash Me to the Mast</span>
+</div>
+</header>
+
+<main>
+<section class="lyrics-section">
+<p class="section-label">Lyrics</p>
+
+<div class="passage">
+<span class="pass-line">There was a man, once a Greek,</span>
+<span class="pass-line">who knew his own weakness</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Before he met it he knew the song would come,</span>
+<span class="pass-line sm">and that he would not have the strength to refuse it</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">He saw the bright shore</span>
+<span class="pass-line">already burning in his mind</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">The easy lie of beauty</span>
+<span class="pass-line sm">calling him from his homeward path</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">So he chose in cold blood</span>
+<span class="pass-line">what his heart would never choose</span>
+</div>
+
+<div class="passage">
+<span class="pass-line bold">&ldquo;Bind me,</span>
+<span class="pass-line bold">and let my ears stay open&rdquo;</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Let my body strain</span>
+<span class="pass-line">while my mind stays faithful</span>
+</div>
+
+<div class="divider"></div>
+
+<p class="section-head">The Song</p>
+
+<div class="passage">
+<span class="pass-line">Now that man is I,</span>
+<span class="pass-line">and the coast draws near</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Softly it rises now,</span>
+<span class="pass-line">over the glittering foam</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Sweet as a childhood dream,</span>
+<span class="pass-line sm">sharp as a hidden blade</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">My name in its breath,</span>
+<span class="pass-line sm">my fears in its fragrance</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Each note a finger curling under my ribs</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Why does desire dress itself</span>
+<span class="pass-line">in such tender colors?</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Why must the snare shimmer like salvation?</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">How I feel it brushing</span>
+<span class="pass-line">the hollows of my heart</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Telling me I was born</span>
+<span class="pass-line sm">only for this surrender</span>
+</div>
+
+<div class="divider"></div>
+
+<p class="section-head">The Answer</p>
+
+<div class="passage">
+<span class="pass-line">Oh distant shore,</span>
+<span class="pass-line">I&rsquo;ll never touch</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Your hands, I&rsquo;ll never hold</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">You shine within my longing</span>
+<span class="pass-line sm">like a lantern in the fog</span>
+</div>
+
+<div class="passage">
+<span class="pass-line faded">If I were free I would be lost</span>
+<span class="pass-line faded">If I were lost I would be gone</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="passage">
+<span class="pass-line bold">So lash me to the mast</span>
+<span class="pass-line bold">before I see the foam break</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Tie these treacherous arms</span>
+<span class="pass-line">that ache to reach the wave</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Then roll back through my skin with music</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Close my mind if I must tremble, scream,</span>
+<span class="pass-line sm">and let it be the change</span>
+</div>
+
+<div class="passage">
+<span class="pass-line faded sm">Not in your arms</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="passage">
+<span class="pass-line bold">Lash me to the mast</span>
+<span class="pass-line bold">while reason still can speak</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">Find the storm inside my veins</span>
+<span class="pass-line">before it shatters bone</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Harder, tighter,</span>
+<span class="pass-line sm">let the chords outsing the call</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Let the burning in my wrist</span>
+<span class="pass-line sm">become the fire in my blood</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="passage">
+<span class="pass-line">Let the oarsmen row on,</span>
+<span class="pass-line">I will rage and I will rise</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">I will curse these binding hands</span>
+<span class="pass-line sm">that keep me to my call</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">But when the tide is turning,</span>
+<span class="pass-line">silence floods the sea</span>
+</div>
+
+<div class="passage">
+<span class="pass-line">These livid marks will sing</span>
+<span class="pass-line">the truest song in me</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="passage">
+<span class="pass-line bold">Lash me to the mast</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">I choose narrow pain</span>
+<span class="pass-line sm">over the wide and sweet decay</span>
+</div>
+
+<div class="passage">
+<span class="pass-line sm">Let the waves break on that foam</span>
+<span class="pass-line sm">Let every fiber strain</span>
+<span class="pass-line sm">Break on the wind yet keep my bow toward home</span>
+<span class="pass-line sm">While all my senses drown</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="passage">
+<span class="pass-line bold">Lash me to the mast</span>
+<span class="pass-line bold">Hold fast</span>
+</div>
+
+</section>
+</main>
+
+<footer class="finale">
+<h2>Lash Me<br>to the Mast</h2>
+<p>Money Mythos Soundtrack<br>Kenny Polcari &times; The Antediluvian</p>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+function tick() {
+const s = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.width = (s > 0 ? Math.min(100, window.scrollY / s * 100) : 0) + '%';
+}
+addEventListener('scroll', tick, { passive: true });
+tick();
+</script>
+</body>
+</html>

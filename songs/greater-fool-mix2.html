@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#E8734A" />
+<title>Greater Fool (mix 2) — Money Mythos</title>
+<style>
+:root {
+--bg: #E8734A;
+--ink: #1B1B1B;
+--line: rgba(27,27,27,.15);
+--max: 1100px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--ink);
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+::selection { background: var(--ink); color: var(--bg); }
+
+.progress {
+position: fixed;
+z-index: 100;
+inset: 0 auto auto 0;
+width: 100%;
+height: 4px;
+background: rgba(27,27,27,.15);
+}
+.progress > i {
+display: block;
+width: 0;
+height: 100%;
+background: var(--ink);
+}
+
+.all-songs-link {
+position: fixed;
+z-index: 90;
+top: 30px;
+left: 28px;
+font-size: .72rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .14em;
+color: var(--ink);
+text-decoration: none;
+opacity: .7;
+}
+.all-songs-link:hover { opacity: 1; }
+
+.hero {
+min-height: 100svh;
+display: grid;
+align-items: end;
+padding: clamp(80px, 10vw, 140px) clamp(28px, 6vw, 80px) clamp(60px, 8vw, 100px);
+border-bottom: 1px solid var(--line);
+}
+.hero-inner { max-width: var(--max); width: 100%; margin: 0 auto; }
+.eyebrow {
+margin: 0 0 1.6rem;
+font-size: clamp(.7rem, 1.1vw, .9rem);
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .2em;
+opacity: .55;
+}
+h1 {
+margin: 0;
+font-size: clamp(5rem, 16vw, 14rem);
+line-height: .76;
+letter-spacing: -.09em;
+font-weight: 900;
+text-transform: uppercase;
+}
+.mix-tag {
+display: inline-block;
+margin-top: 2rem;
+font-size: clamp(.72rem, 1.2vw, 1rem);
+font-weight: 900;
+letter-spacing: .16em;
+text-transform: uppercase;
+border: 2px solid var(--ink);
+padding: .45rem 1rem;
+opacity: .65;
+}
+
+.lyrics-section {
+padding: clamp(80px, 10vw, 130px) clamp(28px, 6vw, 80px);
+max-width: calc(var(--max) + clamp(56px, 12vw, 160px));
+margin: 0 auto;
+}
+.section-label {
+font-size: .72rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: .18em;
+opacity: .45;
+margin-bottom: 2.4rem;
+}
+.lyric-block {
+margin-bottom: clamp(48px, 7vw, 80px);
+}
+.lyric-block:last-child { margin-bottom: 0; }
+.lyric-line {
+display: block;
+font-size: clamp(2.2rem, 5.5vw, 5.2rem);
+line-height: 1.04;
+letter-spacing: -.05em;
+font-weight: 500;
+margin-bottom: .22em;
+}
+.lyric-line.bold { font-weight: 900; }
+.lyric-line.faded { opacity: .5; }
+.divider {
+height: 1px;
+background: var(--line);
+margin: clamp(48px, 7vw, 80px) 0;
+}
+
+.finale {
+padding: clamp(80px, 12vw, 160px) clamp(28px, 6vw, 80px);
+text-align: center;
+border-top: 1px solid var(--line);
+}
+.finale h2 {
+margin: 0;
+font-size: clamp(3rem, 9vw, 9rem);
+line-height: .82;
+letter-spacing: -.08em;
+font-weight: 900;
+text-transform: uppercase;
+}
+.finale p {
+margin: 2rem 0 0;
+font-size: clamp(.72rem, 1.3vw, .95rem);
+text-transform: uppercase;
+letter-spacing: .14em;
+font-weight: 800;
+opacity: .55;
+}
+
+@media (max-width: 680px) {
+h1 { font-size: clamp(4.2rem, 22vw, 7rem); }
+.lyric-line { font-size: clamp(1.9rem, 9vw, 3rem); }
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+<a class="all-songs-link" href="../index.html">&larr; All Songs</a>
+
+<header class="hero">
+<div class="hero-inner">
+<p class="eyebrow">Money Mythos · Track 07</p>
+<h1>Greater<br>Fool</h1>
+<span class="mix-tag">Mix 2</span>
+</div>
+</header>
+
+<main>
+<section class="lyrics-section">
+<p class="section-label">Lyrics</p>
+
+<div class="lyric-block">
+<span class="lyric-line">They call it a game</span>
+<span class="lyric-line">A high-stakes play</span>
+<span class="lyric-line">Where fortunes are made</span>
+<span class="lyric-line">Then swiftly decay</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line">But listen close</span>
+<span class="lyric-line">You wanna know the rule?</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="lyric-block">
+<span class="lyric-line bold">Every winning hand</span>
+<span class="lyric-line bold">needs a greater fool</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="lyric-block">
+<span class="lyric-line">So raise your glass</span>
+<span class="lyric-line">to the greater fool</span>
+<span class="lyric-line faded">(hey!)</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line">The one who buys the lie</span>
+<span class="lyric-line">Calls it a jewel</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line">You think you&rsquo;re sharp</span>
+<span class="lyric-line">You think you&rsquo;re cool</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line bold">But every winning hand</span>
+<span class="lyric-line bold">needs a greater fool</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="lyric-block">
+<span class="lyric-line faded">Yeah</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line">Every crooked crown</span>
+<span class="lyric-line">Every paper throne</span>
+<span class="lyric-line">Is standing on the back</span>
+<span class="lyric-line">of someone alone</span>
+</div>
+
+<div class="lyric-block">
+<span class="lyric-line">You wanna beat the house</span>
+<span class="lyric-line">That&rsquo;s the brutal truth</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="lyric-block">
+<span class="lyric-line bold">Every winning hand</span>
+<span class="lyric-line bold">needs a greater fool</span>
+</div>
+
+</section>
+</main>
+
+<footer class="finale">
+<h2>Greater<br>Fool</h2>
+<p>Money Mythos Soundtrack<br>Kenny Polcari &times; The Antediluvian &middot; Mix 2</p>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+function tick() {
+const s = document.documentElement.scrollHeight - window.innerHeight;
+bar.style.width = (s > 0 ? Math.min(100, window.scrollY / s * 100) : 0) + '%';
+}
+addEventListener('scroll', tick, { passive: true });
+tick();
+</script>
+</body>
+</html>
