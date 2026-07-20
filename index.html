@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Mythos — Kenneth Polcari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080807;
+  --surface:#101010;
+  --border:rgba(255,255,255,0.08);
+  --text:#ede8df;
+  --muted:#6b6560;
+  --gold:#c9b98a;
+  --f-serif:'Cormorant Garamond',Georgia,serif;
+  --f-mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--f-serif);-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;
+  background:rgba(8,8,7,0.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:var(--f-mono);font-size:12px;letter-spacing:4px;
+  color:var(--gold);text-decoration:none;
+}
+.nav-right{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:2px;
+  color:var(--muted);text-transform:uppercase;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:120px 40px 80px;
+  border-bottom:1px solid var(--border);
+}
+.hero-kicker{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:4px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:40px;
+}
+.hero-title{
+  font-family:var(--f-mono);font-size:clamp(52px,10vw,120px);
+  letter-spacing:0.06em;color:var(--text);line-height:0.95;
+  margin-bottom:0;
+}
+.hero-divider{
+  width:1px;height:64px;background:var(--gold);opacity:0.5;
+  margin:40px auto;
+}
+.hero-presenter{
+  font-family:var(--f-serif);font-style:italic;font-weight:300;
+  font-size:clamp(20px,3vw,30px);color:var(--muted);
+  letter-spacing:0.08em;
+}
+.hero-presenter em{color:var(--text);font-style:normal;font-weight:400}
+.hero-meta{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:3px;
+  color:rgba(107,101,96,0.6);text-transform:uppercase;margin-top:12px;
+}
+
+/* ── PLAYLIST ── */
+.playlist{padding:0 0 120px}
+.playlist-label{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:3px;
+  color:var(--muted);text-transform:uppercase;
+  text-align:center;padding:64px 0 40px;
+}
+
+.song-row{
+  display:grid;grid-template-columns:48px 1fr auto;
+  align-items:center;gap:24px;
+  padding:28px 40px;
+  border-top:1px solid var(--border);
+  text-decoration:none;color:inherit;
+  transition:background 0.15s;
+}
+.song-row:last-child{border-bottom:1px solid var(--border)}
+.song-row:hover{background:var(--surface)}
+
+.song-num{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:2px;
+  color:var(--gold);opacity:0.6;text-align:right;
+}
+.song-info{}
+.song-title{
+  font-family:var(--f-serif);font-size:clamp(20px,3.5vw,32px);
+  font-weight:600;color:var(--text);line-height:1.2;margin-bottom:4px;
+}
+.song-subtitle{
+  font-family:var(--f-serif);font-style:italic;font-weight:300;
+  font-size:14px;color:var(--muted);
+}
+.song-type{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:2px;
+  color:var(--muted);text-transform:uppercase;white-space:nowrap;
+}
+.song-arrow{
+  font-family:var(--f-mono);font-size:11px;color:var(--muted);
+  margin-left:8px;transition:transform 0.15s;
+}
+.song-row:hover .song-arrow{transform:translateX(4px)}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:60px 40px;
+  border-top:1px solid var(--border);
+}
+.footer-logo{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:5px;
+  color:var(--muted);display:block;margin-bottom:10px;
+}
+.footer-sub{
+  font-family:var(--f-serif);font-style:italic;font-size:13px;
+  color:rgba(107,101,96,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  nav{padding:16px 20px}
+  .song-row{grid-template-columns:32px 1fr;padding:20px}
+  .song-type,.song-arrow{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">MM</a>
+  <span class="nav-right">Money Mythos</span>
+</nav>
+
+<section class="hero">
+  <p class="hero-kicker">A Musical History of American Finance</p>
+  <h1 class="hero-title">MONEY<br>MYTHOS</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-presenter">with <em>Kenneth Polcari</em></p>
+  <p class="hero-meta">Songs · 2025–2026</p>
+</section>
+
+<main>
+  <p class="playlist-label">The Playlist</p>
+
+  <a href="songs/when-coca-cola-went-public.html" class="song-row">
+    <span class="song-num">01</span>
+    <div class="song-info">
+      <div class="song-title">When Coca-Cola Went Public</div>
+      <div class="song-subtitle">November 1919 · The New York Stock Exchange</div>
+    </div>
+    <span class="song-type">Spoken Word</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/cant-keep-the-boy-plunger-down.html" class="song-row">
+    <span class="song-num">02</span>
+    <div class="song-info">
+      <div class="song-title">Can't Keep the Boy Plunger Down</div>
+      <div class="song-subtitle">Jesse Livermore · Boston</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/odysseus-and-the-sirens.html" class="song-row">
+    <span class="song-num">03</span>
+    <div class="song-info">
+      <div class="song-title">Odysseus and the Sirens</div>
+      <div class="song-subtitle">On Temptation · On Restraint</div>
+    </div>
+    <span class="song-type">Spoken Word</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/the-coca-cola-dividends.html" class="song-row">
+    <span class="song-num">04</span>
+    <div class="song-info">
+      <div class="song-title">The Coca-Cola Dividends</div>
+      <div class="song-subtitle">On Patience · On the Long View</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/i-play-a-lone-hand.html" class="song-row">
+    <span class="song-num">05</span>
+    <div class="song-info">
+      <div class="song-title">I Play a Lone Hand</div>
+      <div class="song-subtitle">Jesse Livermore · The Speculator's Creed</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/greater-fool-mix1.html" class="song-row">
+    <span class="song-num">06</span>
+    <div class="song-info">
+      <div class="song-title">Greater Fool</div>
+      <div class="song-subtitle">Mix 1</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/greater-fool-mix2.html" class="song-row">
+    <span class="song-num">07</span>
+    <div class="song-info">
+      <div class="song-title">Greater Fool</div>
+      <div class="song-subtitle">Mix 2</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+
+  <a href="songs/odysseus-and-the-sirens-fight-song.html" class="song-row">
+    <span class="song-num">08</span>
+    <div class="song-info">
+      <div class="song-title">Odysseus and the Sirens</div>
+      <div class="song-subtitle">Fight Song</div>
+    </div>
+    <span class="song-type">Song</span>
+    <span class="song-arrow">→</span>
+  </a>
+</main>
+
+<footer>
+  <span class="footer-logo">MONEY MYTHOS</span>
+  <p class="footer-sub">with Kenneth Polcari · 2025–2026</p>
+</footer>
+
+</body>
+</html>
