@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Coca-Cola Went Public — Money Mythos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080807;--surface:#101010;--border:rgba(255,255,255,0.08);
+  --text:#ede8df;--muted:#6b6560;--gold:#c9b98a;
+  --accent:#C2943A;
+  --f-serif:'Cormorant Garamond',Georgia,serif;
+  --f-mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--f-serif);-webkit-font-smoothing:antialiased}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;background:rgba(8,8,7,0.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-back{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--text)}
+.nav-logo{font-family:var(--f-mono);font-size:12px;letter-spacing:4px;color:var(--gold);text-decoration:none}
+.nav-num{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted)}
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:120px 40px 80px;
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'01';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--f-mono);font-size:clamp(200px,40vw,500px);
+  letter-spacing:-0.05em;color:rgba(255,255,255,0.025);
+  line-height:1;white-space:nowrap;pointer-events:none;user-select:none;
+}
+.hero-accent{width:48px;height:2px;background:var(--accent);margin-bottom:32px}
+.hero-type{font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px}
+.hero-title{
+  font-family:var(--f-serif);font-size:clamp(42px,7vw,96px);
+  font-weight:700;line-height:1.0;color:var(--text);margin-bottom:24px;
+}
+.hero-sub{font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:clamp(16px,2vw,22px);color:var(--muted)}
+.body-wrap{max-width:680px;margin:0 auto;padding:80px 40px 120px}
+.narrative{font-family:var(--f-serif);font-size:18px;font-weight:300;line-height:1.95;color:rgba(237,232,223,0.85)}
+.narrative p{margin-bottom:28px}
+.narrative p:last-child{margin-bottom:0}
+.narrative .hl{color:var(--text);font-weight:400}
+.narrative .price{font-family:var(--f-mono);font-size:16px;color:var(--accent);font-weight:400}
+.section-rule{height:1px;background:var(--border);margin:60px 0}
+.song-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:32px 40px;border-top:1px solid var(--border);
+}
+.song-nav a{font-family:var(--f-mono);font-size:10px;letter-spacing:2px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+.song-nav a:hover{color:var(--text)}
+.song-nav-center{font-family:var(--f-mono);font-size:9px;letter-spacing:3px;color:rgba(107,101,96,0.4)}
+footer{text-align:center;padding:48px 40px;border-top:1px solid var(--border)}
+.footer-logo{font-family:var(--f-mono);font-size:10px;letter-spacing:5px;color:var(--muted);display:block;margin-bottom:8px}
+.footer-sub{font-family:var(--f-serif);font-style:italic;font-size:13px;color:rgba(107,101,96,0.5)}
+@media(max-width:640px){
+  nav,footer{padding-left:20px;padding-right:20px}
+  .hero{padding:100px 20px 60px}
+  .body-wrap{padding:60px 20px 80px}
+  .narrative{font-size:16px}
+  .song-nav{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-back">&larr; All Songs</a>
+  <a href="../index.html" class="nav-logo">MM</a>
+  <span class="nav-num">01 / 08</span>
+</nav>
+<section class="hero">
+  <div class="hero-accent"></div>
+  <p class="hero-type">Spoken Word</p>
+  <h1 class="hero-title">When Coca-Cola<br>Went Public</h1>
+  <p class="hero-sub">November 1919 &middot; The New York Stock Exchange</p>
+</section>
+<article class="body-wrap">
+  <div class="narrative">
+    <p>The Trust Company of Georgia. September, 1919. <span class="hl">Asa Candler</span> is 68 &mdash; former mayor of Atlanta, merchant, relentless advertiser. He built a cathedral of commerce from a brass kettle and a salesman&rsquo;s gamble. But his children do not want the business. They want liquidity.</p>
+    <p>So he transfers his controlling interest. Almost immediately, a consortium led by <span class="hl">Ernest Woodruff</span> steps forward &mdash; polished, strategic, northern in method but southern enough in accent. They pay <span class="price">$25 million</span> for the Coca-Cola Company. The biggest financial deal the South has ever seen. A regional tonic, suddenly priced as a national institution.</p>
+    <p>Woodruff&rsquo;s plan is disarmingly simple: take it public. Because an initial public offering is not just financing &mdash; it is transformation. Private enterprise becomes public property. A story becomes a symbol. Ownership widens. Not just to drink it. To hold it.</p>
+    <p>The timing borders on poetic. The war is over. The Treaty of Versailles signed. Factories search back to life. Railroads hum. Credit expands. A nation done sacrificing is ready to consume. And Coca-Cola &mdash; five cents, the same in every town &mdash; feels permanent. Southern sugar in a national tonic.</p>
+    <p>The New York Stock Exchange. November, 1919. The floor alive with motion. Clerks weave between shouting brokers. Paper and tape spills from brass machines like mechanical confetti. Then it prints: <span class="hl">Coca-Cola Company. <span class="price">$40</span> per share.</span> Forty dollars &mdash; a week&rsquo;s wages for a factory worker. A month&rsquo;s rent for a tenement family.</p>
+    <p>The offering is a sensation. A company that once sold a handful of glasses a day at a pharmacy counter now trades beside railroads and steel. And something unusual happens. The South buys. Georgia buys. The whole land buys &mdash; not merely out of calculation, but out of pride. They watch this drink move from regional novelty to cultural fixture. They recognize it. They trust it. For once, the capital of southern imagination is printed in northern ink.</p>
+    <p>This is what an IPO can be at its best &mdash; a bridge. A soda jerk&rsquo;s syrup recipe, now joined by bankers and widows and small-town merchants holding engraved certificates. North and South owning the same promise. A shared stake in something distinctly American.</p>
+    <p>The nickname sticks. A century later, it still trades under two letters. <span class="hl price">KO.</span> Unmistakable.</p>
+    <div class="section-rule"></div>
+    <p>But the markets are not patriotic. They are arithmetic. The post-war bull market heats. Speculation stretches thin. Commodity prices swing wildly. Sugar &mdash; essential, invisible, foundational &mdash; becomes volatile. Costs surge. Then collapse. The exuberance of 1919 cools into the uncertainty of 1920. And the stock begins to slide. <span class="price">35. 30. 25.</span></p>
+    <p>By 1921, Coca-Cola trades at <span class="price">$19</span> per share. Nineteen &mdash; less than half its debut. Picture the early investor. He bought at forty. Told his wife. Told his brother-in-law. He felt modern. And then the numbers shrank. Forty becomes thirty. Thirty becomes twenty. Twenty becomes nineteen. Optimism becomes embarrassment.</p>
+    <p>Some sell. They call it overpriced. The southern story, oversold on northern paper. They crystallize the loss and move on. But others hold &mdash; not because they enjoy pain, because they notice something simple: <span class="hl">the drink is still selling.</span> Five cents at the counter. Ice clinking in glass bottles. Warehouses loading. The market can have the price. It cannot have the thirst.</p>
+    <div class="section-rule"></div>
+    <p>This is the quiet lesson of 1919. A stock certificate is paper. A habit is power. A ticker can tremble. The brand can endure. Before the legend hardens. Before fortunes quietly compound in small southern towns. Before patience becomes the whole point &mdash; there is this moment. A southern creation, invited onto a national stage. An American public, invited to participate. Not just in a beverage.</p>
+    <p>But in ownership.</p>
+  </div>
+</article>
+<nav class="song-nav">
+  <a href="../index.html">&larr; Index</a>
+  <span class="song-nav-center">01 of 08</span>
+  <a href="cant-keep-the-boy-plunger-down.html">Next &rarr;</a>
+</nav>
+<footer>
+  <span class="footer-logo">MONEY MYTHOS</span>
+  <p class="footer-sub">with Kenneth Polcari</p>
+</footer>
+</body>
+</html>
