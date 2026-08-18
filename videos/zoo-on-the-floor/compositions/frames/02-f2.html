@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- head is metadata for the source file only; the runtime discards it -->
+  </head>
+  <body>
+    <template>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;900&family=IBM+Plex+Mono:wght@500&display=swap"
+      />
+      <style>
+        /* ══════════════════════════════════════════════════════════════════
+           02-f2 — Verse 2 (BEARS) — Broadside "orange register"
+           Two intro-kinetic-cascade groups, forked + reskinned:
+             ground fire-orange #E85D26, text ink-black #111111 (ink-on-fire,
+             absolute — never cream on orange), Barlow 900 lowercase
+             negative-tracked display type, fire-orange is the ONLY color so
+             there is no second accent inside this frame — the ground itself
+             IS the accent.
+           ════════════════════════════════════════════════════════════════ */
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: #e85d26;
+          color: #111111;
+          font-family:
+            "Barlow", "Helvetica Neue", Arial, sans-serif;
+        }
+        .group {
+          position: absolute;
+          inset: 0;
+          background: #e85d26;
+        }
+        /* A phrase-block = a left-anchored, flex-wrapped word run.
+           5+ words → Broadside h2 ramp (4.5cqw ≈ 86px @ 1920 canvas). */
+        .phrase-block {
+          position: absolute;
+          left: 105.6px; /* pad-x 5.5cqw */
+          right: 422.4px; /* keep block ≤ 78cqw ≈ 1497.6px */
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          column-gap: 0.28em;
+          row-gap: 0.06em;
+          opacity: 0;
+          will-change: opacity;
+        }
+        .w {
+          font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 700;
+          font-size: 86px;
+          line-height: 0.98;
+          letter-spacing: -0.02em;
+          text-transform: lowercase;
+          opacity: 0;
+          will-change: opacity;
+        }
+        /* The climax = one word, pulled out of its phrase, at Broadside
+           display scale (13cqw ≈ 250px, ≤2 words), sliding in with the
+           ringing sparkle icon. */
+        .climax {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          display: flex;
+          align-items: center;
+          gap: 0.3em;
+          white-space: nowrap;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+        .cword {
+          font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 900;
+          font-size: 250px;
+          line-height: 1;
+          letter-spacing: -0.04em;
+          text-transform: lowercase;
+        }
+        .icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          flex-shrink: 0;
+          width: 210px;
+          height: 210px;
+          opacity: 0;
+          overflow: visible;
+        }
+        .icon-glyph {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 210px;
+          height: 210px;
+          color: #111111;
+          transform-origin: 50% 50%;
+        }
+        .icon-glyph svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        .ring {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 273px;
+          height: 273px;
+          border-radius: 50%;
+          border: 3px solid rgba(17, 17, 17, 0.25);
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.4);
+        }
+        .ring.ring2 {
+          border-color: rgba(17, 17, 17, 0.1);
+        }
+      </style>
+
+      <div id="root" data-composition-id="02-f2" data-width="1920" data-height="1080" data-duration="14.953">
+        <div id="g1" class="group"></div>
+        <div id="g2" class="group"></div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+
+          var WORD_FADE = 0.18,
+            CUT = 0.1,
+            SLIDE = 0.42,
+            OFFSCREEN_X = 700;
+
+          var SPARKLE_SVG =
+            '<svg viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%">' +
+            '<path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z"/>' +
+            "</svg>";
+
+          function words(s) {
+            return String(s).trim().split(/\s+/).filter(Boolean);
+          }
+
+          // Evenly interpolate n reveal anchors between [t0, t1] (n === 1 → t0).
+          function spread(t0, t1, n) {
+            var out = [];
+            for (var i = 0; i < n; i++) {
+              out.push(n <= 1 ? t0 : t0 + ((t1 - t0) * i) / (n - 1));
+            }
+            return out;
+          }
+
+          var tl = gsap.timeline({ paused: true });
+
+          // ── Build one phrase-block: word spans, revealed across [t0,t1],
+          //    then hard-cut at cutAt. Returns nothing; wires directly onto tl. ──
+          function buildPhrase(containerId, hostEl, text, t0, t1, cutAt) {
+            var block = document.createElement("div");
+            block.className = "phrase-block";
+            block.id = containerId;
+            var spans = words(text).map(function (w) {
+              var el = document.createElement("span");
+              el.className = "w";
+              el.textContent = w;
+              block.appendChild(el);
+              return el;
+            });
+            hostEl.appendChild(block);
+
+            gsap.set(block, { opacity: 0 });
+            gsap.set(spans, { opacity: 0 });
+
+            var times = spread(t0, t1, spans.length);
+            tl.to(block, { opacity: 1, duration: 0.01, overwrite: "auto" }, times[0]);
+            spans.forEach(function (el, i) {
+              tl.to(
+                el,
+                { opacity: 1, duration: WORD_FADE, ease: "power2.out", overwrite: "auto" },
+                times[i],
+              );
+            });
+            tl.to(block, { opacity: 0, duration: CUT, ease: "power2.in", overwrite: "auto" }, cutAt - CUT);
+          }
+
+          // ── Build the climax: slide-in word + ringing sparkle icon. ──
+          function buildClimax(containerId, hostEl, word, inAt, iconAt, holdUntil) {
+            var cEl = document.createElement("div");
+            cEl.className = "climax";
+            cEl.id = containerId;
+
+            var wEl = document.createElement("span");
+            wEl.className = "cword";
+            wEl.textContent = word;
+            cEl.appendChild(wEl);
+
+            var iconEl = document.createElement("span");
+            iconEl.className = "icon";
+            var r1 = document.createElement("span");
+            r1.className = "ring";
+            var r2 = document.createElement("span");
+            r2.className = "ring ring2";
+            iconEl.appendChild(r1);
+            iconEl.appendChild(r2);
+            var glyph = document.createElement("span");
+            glyph.className = "icon-glyph";
+            glyph.innerHTML = SPARKLE_SVG;
+            iconEl.appendChild(glyph);
+            cEl.appendChild(iconEl);
+
+            hostEl.appendChild(cEl);
+
+            gsap.set(cEl, { xPercent: -50, yPercent: -50, x: OFFSCREEN_X, opacity: 0 });
+            gsap.set(iconEl, { opacity: 0 });
+            gsap.set(glyph, { scale: 0.4, rotation: -8, opacity: 0 });
+            gsap.set([r1, r2], { opacity: 0, scale: 0.4 });
+
+            tl.to(cEl, { x: 0, opacity: 1, duration: SLIDE, ease: "power3.out", overwrite: "auto" }, inAt);
+
+            tl.to(iconEl, { opacity: 1, duration: 0.3, ease: "power3.out", overwrite: "auto" }, iconAt);
+            tl.fromTo(
+              glyph,
+              { scale: 0.4, rotation: -8, opacity: 0 },
+              { scale: 1, rotation: 0, opacity: 1, duration: 0.35, ease: "back.out(2.4)", overwrite: "auto" },
+              iconAt + 0.05,
+            );
+            tl.to(glyph, { rotation: 13, duration: 0.1, ease: "power2.out", overwrite: "auto" }, iconAt + 0.4);
+            tl.to(
+              glyph,
+              { rotation: 0, duration: 0.85, ease: "elastic.out(1, 0.25)", overwrite: "auto" },
+              iconAt + 0.5,
+            );
+            [0, 0.28].forEach(function (off) {
+              tl.fromTo(
+                [r1, r2],
+                { scale: 0.4, opacity: 0.55 },
+                { scale: 1.5, opacity: 0, duration: 0.8, ease: "power2.out", stagger: 0.08, overwrite: "auto" },
+                iconAt + 0.42 + off,
+              );
+            });
+          }
+
+          // ── Group visibility swap (0ms hard cut at the group boundary) ──
+          var g1El = document.getElementById("g1");
+          var g2El = document.getElementById("g2");
+          gsap.set(g1El, { autoAlpha: 1 });
+          gsap.set(g2El, { autoAlpha: 0 });
+          tl.set(g1El, { autoAlpha: 1 }, 0);
+          tl.set(g2El, { autoAlpha: 0 }, 0);
+          tl.set(g1El, { autoAlpha: 0 }, 7.569);
+          tl.set(g2El, { autoAlpha: 1 }, 7.569);
+
+          // ══ g1 — "BEARS SWIPE DOWN, THEY'RE SHORTING YOUR DREAM /
+          //          BETTING IT BREAKS, BETTING IT BLEEDS"  (local 0 – 7.569) ══
+          // real seconds [16.9, 18.51, 19.71, 21.04, 22.41] − 16.208 = local anchors
+          buildPhrase("g1_p1", g1El, "BEARS SWIPE DOWN, THEY'RE SHORTING YOUR DREAM", 0.692, 2.302, 3.502);
+          buildPhrase("g1_p2", g1El, "BETTING IT BREAKS, BETTING IT", 3.502, 4.832, 6.202);
+          buildClimax("g1_climax", g1El, "BLEEDS", 6.202, 6.892, 7.569);
+
+          // ══ g2 — "THEY SOLD THE SKIN 'FORE THEY CAUGHT THE BEAST /
+          //          EIGHTEENTH-CENTURY LONDON — THAT'S WHERE THEY WERE RELEASED"
+          //          (local 7.569 – 14.953) ══
+          // real seconds [24.15, 25.57, 27.49, 28.77, 30.16] − 16.208 = local anchors
+          buildPhrase("g2_p1", g2El, "THEY SOLD THE SKIN 'FORE THEY CAUGHT THE BEAST", 7.942, 9.362, 11.282);
+          buildPhrase("g2_p2", g2El, "EIGHTEENTH-CENTURY LONDON — THAT'S WHERE THEY WERE", 11.282, 12.562, 13.952);
+          buildClimax("g2_climax", g2El, "RELEASED", 13.952, 14.602, 14.953);
+
+          tl.seek(0);
+          window.__timelines["02-f2"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        #root {
+          position: relative;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: #111111;
+        }
+
+        #stage {
+          position: absolute;
+          inset: 0;
+        }
+
+        /* ── group grounds ── */
+        .grp {
+          position: absolute;
+          inset: 0;
+          container-type: size;
+          overflow: hidden;
+        }
+
+        #g1,
+        #g3 {
+          background: #111111;
+        }
+        #g2 {
+          background: #e85d26;
+        }
+
+        /* ── display block (Broadside "Statement" treatment) ── */
+        .stmt {
+          position: absolute;
+          left: 5.5cqw;
+          right: 5.5cqw;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+        }
+        .stmt-line {
+          font-family: "Barlow", sans-serif;
+          font-weight: 800;
+          font-size: 7.5cqw;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+          text-transform: lowercase;
+          white-space: nowrap;
+        }
+        #g1 .stmt-line {
+          color: #f0ece5;
+        }
+        #g2 .stmt-line {
+          color: #111111;
+        }
+        .word {
+          display: inline-block;
+          opacity: 0;
+          will-change: opacity, transform;
+        }
+        .kw {
+          display: inline-block;
+          opacity: 0;
+          transform: scale(0.6);
+          will-change: opacity, transform;
+        }
+        #g1 .kw {
+          color: #e85d26;
+        }
+        #g2 .kw {
+          /* single-hue register: emphasis via weight only, never a new color */
+          font-weight: 900;
+        }
+
+        /* ── chrome rule stub (36x2cqw-scaled) ── */
+        .rule {
+          width: 36px;
+          height: 2px;
+          margin-top: 2.2cqw;
+          opacity: 0;
+          will-change: opacity, transform;
+          transform-origin: left center;
+          transform: scaleX(0);
+        }
+        #g1 .rule {
+          background: #e85d26;
+        }
+        #g2 .rule {
+          background: #111111;
+        }
+
+        /* ── climax icon (sparkle) ── */
+        .spark {
+          position: absolute;
+          width: 3.2cqw;
+          height: 3.2cqw;
+          opacity: 0;
+          will-change: opacity, transform;
+        }
+        .spark svg {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        #g1 .spark {
+          fill: #e85d26;
+        }
+        #g2 .spark {
+          fill: #111111;
+        }
+
+        /* ── g3: typewriter phrase / keyword font-shuffle (dark register) ── */
+        .g3-wrap {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0 5.5cqw;
+        }
+        .g3-line {
+          display: inline-flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          column-gap: 0.3em;
+          row-gap: 0.1em;
+          color: #f0ece5;
+          font-family: "Barlow", sans-serif;
+          font-weight: 800;
+          font-size: 6.4cqw;
+          line-height: 1.15;
+          letter-spacing: -0.03em;
+          text-transform: lowercase;
+          max-width: 84cqw;
+        }
+        .g3-word {
+          display: inline-block;
+          opacity: 0;
+          will-change: opacity, transform;
+        }
+        .g3-key {
+          display: inline-block;
+          opacity: 0;
+          color: #e85d26;
+          will-change: opacity, transform, font-family, letter-spacing;
+        }
+        .g3-period {
+          display: inline-block;
+          opacity: 0;
+          color: #e85d26;
+          font-family: "Barlow", sans-serif;
+          font-weight: 900;
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="03-f3"
+        data-width="1920"
+        data-height="1080"
+        data-duration="18.839"
+      >
+        <div id="stage">
+          <!-- ══════════════ g1 — dark register — intro-kinetic-cascade fork ══════════════ -->
+          <div id="g1" class="grp">
+            <div class="stmt">
+              <div class="stmt-line" id="g1_l1">
+                <span class="word" id="g1_w0">now</span>
+                <span class="word" id="g1_w1">the</span>
+                <span class="word" id="g1_w2">smart</span>
+                <span class="word" id="g1_w3">money</span>
+                <span class="word" id="g1_w4">knows:</span>
+              </div>
+              <div class="stmt-line" id="g1_l2">
+                <span class="word" id="g1_w5">when</span>
+                <span class="word" id="g1_w6">a</span>
+                <span class="word" id="g1_w7">bull</span>
+                <span class="word" id="g1_w8">starts</span>
+                <span class="word" id="g1_w9">to</span>
+                <span class="kw" id="g1_kw">tire</span>
+              </div>
+              <div class="rule" id="g1_rule"></div>
+            </div>
+            <div class="spark" id="g1_spark" style="left: 5.5cqw; top: 34cqh">
+              <svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg>
+            </div>
+          </div>
+
+          <!-- ══════════════ g2 — orange register — intro-kinetic-cascade fork ══════════════ -->
+          <div id="g2" class="grp">
+            <div class="stmt">
+              <div class="stmt-line" id="g2_l1">
+                <span class="word" id="g2_w0">a</span>
+                <span class="word" id="g2_w1">bear</span>
+                <span class="word" id="g2_w2">smells</span>
+                <span class="word" id="g2_w3">blood,</span>
+              </div>
+              <div class="stmt-line" id="g2_l2">
+                <span class="word" id="g2_w4">and</span>
+                <span class="word" id="g2_w5">the</span>
+                <span class="word" id="g2_w6">spread</span>
+                <span class="word" id="g2_w7">catches</span>
+                <span class="kw" id="g2_kw">fire</span>
+              </div>
+              <div class="rule" id="g2_rule"></div>
+            </div>
+            <div class="spark" id="g2_spark" style="left: 5.5cqw; top: 34cqh">
+              <svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg>
+            </div>
+          </div>
+
+          <!-- ══════════════ g3 — dark register — typewriter-phrase-keyword-shuffle fork ══════════════ -->
+          <div id="g3" class="grp">
+            <div class="g3-wrap">
+              <div class="g3-line" id="g3_line">
+                <span class="g3-word" id="g3_w0">they</span>
+                <span class="g3-word" id="g3_w1">been</span>
+                <span class="g3-word" id="g3_w2">fighting</span>
+                <span class="g3-word" id="g3_w3">since</span>
+                <span class="g3-word" id="g3_w4">the</span>
+                <span class="g3-word" id="g3_w5">street</span>
+                <span class="g3-word" id="g3_w6">was</span>
+                <span class="g3-word" id="g3_w7">just</span>
+                <span class="g3-word" id="g3_w8">dirt</span>
+                <span class="g3-word" id="g3_w9">and</span>
+                <span class="g3-key" id="g3_key">desire</span><span class="g3-period" id="g3_period">.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          var tl = gsap.timeline({ paused: true });
+
+          var F0 = 31.161; // frame start (track seconds) — subtract from every absolute anchor
+          function L(t) {
+            return Math.round((t - F0) * 1000) / 1000;
+          }
+
+          var WORD_FADE = 0.16;
+
+          // ── initial states ──
+          gsap.set("#g1", { autoAlpha: 1 });
+          gsap.set("#g2", { autoAlpha: 0 });
+          gsap.set("#g3", { autoAlpha: 0 });
+          gsap.set(
+            [
+              "#g1_w0", "#g1_w1", "#g1_w2", "#g1_w3", "#g1_w4",
+              "#g1_w5", "#g1_w6", "#g1_w7", "#g1_w8", "#g1_w9", "#g1_kw",
+              "#g2_w0", "#g2_w1", "#g2_w2", "#g2_w3",
+              "#g2_w4", "#g2_w5", "#g2_w6", "#g2_w7", "#g2_kw",
+              "#g3_w0", "#g3_w1", "#g3_w2", "#g3_w3", "#g3_w4",
+              "#g3_w5", "#g3_w6", "#g3_w7", "#g3_w8", "#g3_w9",
+              "#g3_key", "#g3_period",
+            ],
+            { opacity: 0 },
+          );
+          gsap.set(["#g1_kw", "#g2_kw"], { scale: 0.6 });
+          gsap.set(["#g1_rule", "#g2_rule"], { opacity: 0, scaleX: 0 });
+          gsap.set(["#g1_spark", "#g2_spark"], { opacity: 0, scale: 0.4, rotation: -10 });
+          gsap.set("#g3_key", { fontFamily: '"Barlow", sans-serif', fontWeight: 900, letterSpacing: "-0.03em" });
+
+          // helper: fade a chunk of word spans in together with a tiny ripple stagger
+          function chunk(ids, t) {
+            ids.forEach(function (id, i) {
+              tl.to(id, { opacity: 1, duration: WORD_FADE, ease: "power2.out" }, t + i * 0.035);
+            });
+          }
+
+          // ═══════════════════ g1 — local 0 – 7.802 ═══════════════════
+          tl.set("#g1", { autoAlpha: 1 }, 0);
+
+          var g1_anchors = [L(31.6), L(33.02), L(34.32), L(35.69), L(37.15)];
+          chunk(["#g1_w0", "#g1_w1", "#g1_w2"], g1_anchors[0]); // "now the smart"
+          chunk(["#g1_w3", "#g1_w4"], g1_anchors[1]); // "money knows:"
+          chunk(["#g1_w5", "#g1_w6", "#g1_w7"], g1_anchors[2]); // "when a bull"
+          chunk(["#g1_w8", "#g1_w9"], g1_anchors[3]); // "starts to"
+
+          var g1_climaxIn = g1_anchors[4]; // 5.989 — coincides with climax.in
+          var g1_iconAt = L(37.78); // 6.619
+          tl.to("#g1_kw", { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, g1_climaxIn);
+          tl.to("#g1_rule", { opacity: 1, scaleX: 1, duration: 0.3, ease: "power2.out" }, g1_climaxIn + 0.05);
+          tl.to("#g1_spark", { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.4)" }, g1_iconAt);
+          tl.to("#g1_spark", { rotation: 16, duration: 0.12, ease: "power2.out" }, g1_iconAt + 0.32);
+          tl.to("#g1_spark", { rotation: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" }, g1_iconAt + 0.44);
+
+          tl.set("#g1", { autoAlpha: 0 }, 7.802);
+
+          // ═══════════════════ g2 — local 7.802 – 15.418 ═══════════════════
+          tl.set("#g2", { autoAlpha: 1 }, 7.802);
+
+          var g2_anchors = [L(39.38), L(40.66), L(41.91), L(43.51), L(44.95)];
+          chunk(["#g2_w0", "#g2_w1"], g2_anchors[0]); // "a bear"
+          chunk(["#g2_w2", "#g2_w3"], g2_anchors[1]); // "smells blood,"
+          chunk(["#g2_w4", "#g2_w5"], g2_anchors[2]); // "and the"
+          chunk(["#g2_w6", "#g2_w7"], g2_anchors[3]); // "spread catches"
+
+          var g2_climaxIn = g2_anchors[4]; // 13.789 — coincides with climax.in
+          var g2_iconAt = L(45.7); // 14.539
+          tl.to("#g2_kw", { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, g2_climaxIn);
+          tl.to("#g2_rule", { opacity: 1, scaleX: 1, duration: 0.3, ease: "power2.out" }, g2_climaxIn + 0.05);
+          tl.to("#g2_spark", { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.4)" }, g2_iconAt);
+          tl.to("#g2_spark", { rotation: 16, duration: 0.12, ease: "power2.out" }, g2_iconAt + 0.32);
+          tl.to("#g2_spark", { rotation: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" }, g2_iconAt + 0.44);
+
+          tl.set("#g2", { autoAlpha: 0 }, 15.418);
+
+          // ═══════════════════ g3 — local 15.418 – 18.839 ═══════════════════
+          tl.set("#g3", { autoAlpha: 1 }, 15.418);
+
+          var g3_anchors = [L(46.88), L(47.65), L(48.16), L(48.85), L(49.6)];
+          chunk(["#g3_w0", "#g3_w1", "#g3_w2"], g3_anchors[0]); // "they been fighting"
+          chunk(["#g3_w3", "#g3_w4", "#g3_w5"], g3_anchors[1]); // "since the street"
+          chunk(["#g3_w6", "#g3_w7", "#g3_w8"], g3_anchors[2]); // "was just dirt"
+          chunk(["#g3_w9"], g3_anchors[3]); // "and"
+
+          var g3_keyAt = g3_anchors[4]; // 18.439 — "desire" types in
+          tl.to("#g3_key", { opacity: 1, duration: 0.1, ease: "back.out(2)" }, g3_keyAt);
+          // trailing period punches in just after
+          tl.to("#g3_period", { opacity: 1, duration: 0.09, ease: "back.out(3)" }, g3_keyAt + 0.21);
+          // keyword font-shuffle — brand-safe: only the two approved families, no italics,
+          // 0ms hard sets on the beat so the swap itself reads as percussion
+          tl.set("#g3_key", { fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, letterSpacing: "0.05em" }, g3_keyAt + 0.15);
+          tl.set("#g3_key", { fontFamily: '"Barlow", sans-serif', fontWeight: 900, letterSpacing: "-0.03em" }, g3_keyAt + 0.3);
+
+          tl.seek(0);
+          window.__timelines["03-f3"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

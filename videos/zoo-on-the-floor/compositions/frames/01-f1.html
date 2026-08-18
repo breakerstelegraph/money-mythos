@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- head is metadata only for this source file; the HyperFrames runtime discards
+         everything outside <template> when mounting this sub-composition. -->
+    <title>01-f1 — Broadside intro-kinetic-cascade (Verse 1, BULLS)</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        /* Root: styled by #root only (class-scoped rules are dropped when this
+           file's CSS is compiled into the composited render — see
+           hyperframes-core/references/sub-compositions.md, Pitfall 3). */
+        #root {
+          position: relative;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: #111111;
+          color: #f0ece5;
+          font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+        }
+        #stage {
+          position: absolute;
+          inset: 0;
+        }
+        .group {
+          position: absolute;
+          inset: 0;
+        }
+
+        /* ── editorial line stack — left-anchored, vertically centered ── */
+        .line {
+          position: absolute;
+          left: 106px;
+          right: 106px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 0 0.32em;
+          opacity: 0;
+          will-change: opacity;
+          text-transform: lowercase;
+          font-weight: 900;
+        }
+        .w {
+          display: inline-block;
+          opacity: 0;
+          will-change: opacity;
+        }
+        .w.climax {
+          color: #e85d26;
+        }
+
+        /* fit-to-measure ramp, per frame.md typography tokens */
+        .size-h2 {
+          font-size: 86px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.1;
+        }
+        .size-h1 {
+          font-size: 144px;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          line-height: 0.9;
+        }
+        .size-display {
+          font-size: 250px;
+          font-weight: 900;
+          letter-spacing: -0.04em;
+          line-height: 0.88;
+        }
+
+        /* ── climax icon: sparkle pop + expanding rings ── */
+        .icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 110px;
+          height: 110px;
+          flex-shrink: 0;
+          opacity: 0;
+          overflow: visible;
+        }
+        .icon-glyph {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 110px;
+          height: 110px;
+          color: #e85d26;
+          transform-origin: 50% 50%;
+        }
+        .icon-glyph svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        .ring {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 143px;
+          height: 143px;
+          border-radius: 50%;
+          border: 3px solid rgba(232, 93, 38, 0.55);
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.4);
+        }
+        .ring.ring2 {
+          border-color: rgba(232, 93, 38, 0.25);
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="01-f1"
+        data-width="1920"
+        data-height="1080"
+        data-duration="16.208"
+      >
+        <div id="stage">
+          <!-- ══════ GROUP 1 — local 0.0–8.591s — "BULLS CHARGE UP..." ══════ -->
+          <div id="g1" class="group">
+            <div id="g1_l1" class="line size-h1">
+              <span class="w">bulls</span><span class="w">charge</span><span class="w">up,</span>
+            </div>
+            <div id="g1_l2" class="line size-h1">
+              <span class="w">horns</span><span class="w">to</span><span class="w">the</span
+              ><span class="w">sky</span>
+            </div>
+            <div id="g1_l3" class="line size-h1">
+              <span class="w">buying</span><span class="w">long,</span>
+            </div>
+            <div id="g1_l4" class="line size-h2">
+              <span class="w">riding</span><span class="w">high</span><span class="w">—</span
+              ><span class="w">asking</span><span class="w">why</span>
+            </div>
+            <div id="g1_l5" class="line size-display">
+              <span class="w">would</span><span class="w">i</span
+              ><span id="g1_climax" class="w climax">sell?</span>
+              <span id="g1_icon" class="icon">
+                <span class="ring"></span>
+                <span class="ring ring2"></span>
+                <span class="icon-glyph">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <!-- ══════ GROUP 2 — local 8.591–16.208s — "THEY SEE GREEN..." ══════ -->
+          <div id="g2" class="group">
+            <div id="g2_l1" class="line size-h1">
+              <span class="w">they</span><span class="w">see</span><span class="w">green</span>
+            </div>
+            <div id="g2_l2" class="line size-h2">
+              <span class="w">like</span><span class="w">it's</span><span class="w">the</span
+              ><span class="w">only</span><span class="w">color</span><span class="w">god</span
+              ><span class="w">made</span>
+            </div>
+            <div id="g2_l3" class="line size-h1">
+              <span class="w">position</span><span class="w">heavy,</span>
+            </div>
+            <div id="g2_l4" class="line size-h2">
+              <span class="w">leverage</span><span class="w">paid</span><span class="w">—</span
+              ><span class="w">confidence</span><span class="w">never</span>
+            </div>
+            <div id="g2_l5" class="line size-display">
+              <span id="g2_climax" class="w climax">betrayed</span>
+              <span id="g2_icon" class="icon">
+                <span class="ring"></span>
+                <span class="ring ring2"></span>
+                <span class="icon-glyph">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          var tl = gsap.timeline({ paused: true });
+
+          var WORD_FADE = 0.16,
+            WORD_STAGGER = 0.035,
+            CUT = 0.08;
+
+          // ── baseline: everything hidden ──
+          gsap.set(["#g1", "#g2"], { autoAlpha: 1 });
+          gsap.set(
+            [
+              "#g1_l1",
+              "#g1_l2",
+              "#g1_l3",
+              "#g1_l4",
+              "#g1_l5",
+              "#g2_l1",
+              "#g2_l2",
+              "#g2_l3",
+              "#g2_l4",
+              "#g2_l5",
+            ],
+            { opacity: 0 },
+          );
+          gsap.set(".w", { opacity: 0 });
+          gsap.set(["#g1_icon", "#g2_icon"], { opacity: 0 });
+          gsap.set(document.querySelectorAll("#g1_icon .icon-glyph, #g2_icon .icon-glyph"), {
+            scale: 0.4,
+            rotation: -8,
+            opacity: 0,
+          });
+          gsap.set(document.querySelectorAll("#g1_icon .ring, #g2_icon .ring"), {
+            opacity: 0,
+            scale: 0.4,
+          });
+
+          // reveal a line's words at `time`; hard-cut it out at `cutAt` (if given)
+          function wireLine(lineSel, time, cutAt) {
+            var line = document.querySelector(lineSel);
+            var words = line.querySelectorAll(".w");
+            tl.set(lineSel, { opacity: 1 }, time);
+            words.forEach(function (w, i) {
+              tl.to(
+                w,
+                { opacity: 1, duration: WORD_FADE, ease: "power2.out", overwrite: "auto" },
+                time + i * WORD_STAGGER,
+              );
+            });
+            if (cutAt != null) {
+              tl.to(
+                lineSel,
+                { opacity: 0, duration: CUT, ease: "power2.in", overwrite: "auto" },
+                cutAt,
+              );
+            }
+          }
+
+          // pop the climax icon + expanding rings at `at`
+          function wireIcon(prefix, at) {
+            var icon = document.getElementById(prefix + "_icon");
+            var glyph = icon.querySelector(".icon-glyph");
+            var rings = icon.querySelectorAll(".ring");
+            tl.to(icon, { opacity: 1, duration: 0.3, ease: "power3.out", overwrite: "auto" }, at);
+            tl.fromTo(
+              glyph,
+              { scale: 0.4, rotation: -8, opacity: 0 },
+              {
+                scale: 1,
+                rotation: 0,
+                opacity: 1,
+                duration: 0.35,
+                ease: "back.out(2.4)",
+                overwrite: "auto",
+              },
+              at + 0.05,
+            );
+            tl.to(
+              glyph,
+              { rotation: 13, duration: 0.1, ease: "power2.out", overwrite: "auto" },
+              at + 0.4,
+            );
+            tl.to(
+              glyph,
+              { rotation: 0, duration: 0.85, ease: "elastic.out(1, 0.25)", overwrite: "auto" },
+              at + 0.5,
+            );
+            [0, 0.28].forEach(function (off) {
+              tl.fromTo(
+                rings,
+                { scale: 0.4, opacity: 0.55 },
+                { scale: 1.5, opacity: 0, duration: 0.8, ease: "power2.out", stagger: 0.08 },
+                at + 0.42 + off,
+              );
+            });
+          }
+
+          // ── GROUP 1 — anchors: [1.11, 3.34, 4.88, 6.18, 7.57], climax {in:7.57, iconAt:8.1} ──
+          wireLine("#g1_l1", 1.11, 3.34 - CUT);
+          wireLine("#g1_l2", 3.34, 4.88 - CUT);
+          wireLine("#g1_l3", 4.88, 6.18 - CUT);
+          wireLine("#g1_l4", 6.18, 7.57 - CUT);
+          wireLine("#g1_l5", 7.57, null); // climax line — holds to group end
+          wireIcon("g1", 8.1);
+
+          // group boundary — 0ms autoAlpha swap
+          tl.set("#g1", { autoAlpha: 1 }, 0);
+          tl.set("#g2", { autoAlpha: 0 }, 0);
+          tl.set("#g1", { autoAlpha: 0 }, 8.591);
+          tl.set("#g2", { autoAlpha: 1 }, 8.591);
+
+          // ── GROUP 2 — anchors: [8.71, 10.4, 11.84, 13.58, 15.26], climax {in:15.26, iconAt:16.14} ──
+          wireLine("#g2_l1", 8.71, 10.4 - CUT);
+          wireLine("#g2_l2", 10.4, 11.84 - CUT);
+          wireLine("#g2_l3", 11.84, 13.58 - CUT);
+          wireLine("#g2_l4", 13.58, 15.26 - CUT);
+          wireLine("#g2_l5", 15.26, null); // climax line — holds to frame end
+          wireIcon("g2", 16.14);
+
+          tl.seek(0);
+          window.__timelines["01-f1"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
