@@ -9,6 +9,14 @@
   <body>
     <template>
       <style>
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/barlow-400.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/barlow-600.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/barlow-700.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/barlow-800.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/barlow-900.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibmplexmono-400.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/ibmplexmono-500.woff2') format('woff2'); }
+
         /* Root: styled by #root only (class-scoped rules are dropped when this
            file's CSS is compiled into the composited render — see
            hyperframes-core/references/sub-compositions.md, Pitfall 3). */
@@ -174,9 +182,9 @@
           <!-- ══════ GROUP 1 — local 0.0–7.877s — cold VOID restart -> tile mosaic accumulate -> recolor on the roll ══════ -->
           <div id="g1" class="group">
             <div class="g1-wall">
-              <div id="g1_tile1" class="tile"><span class="tile-label">welcome</span></div>
-              <div id="g1_tile2" class="tile"><span class="tile-label">to the</span></div>
-              <div id="g1_tile3" class="tile"><span class="tile-label">jungle</span></div>
+              <div id="g1_tile1" class="tile"><span class="tile-label" data-layout-allow-occlusion="true">welcome</span></div>
+              <div id="g1_tile2" class="tile"><span class="tile-label" data-layout-allow-occlusion="true">to the</span></div>
+              <div id="g1_tile3" class="tile"><span class="tile-label" data-layout-allow-occlusion="true">jungle</span></div>
             </div>
           </div>
 

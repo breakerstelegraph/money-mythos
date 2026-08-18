@@ -5,13 +5,15 @@
   </head>
   <body>
     <template>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap"
-        rel="stylesheet"
-      />
-      <style>
+<style>
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/barlow-400.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/barlow-600.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/barlow-700.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/barlow-800.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/barlow-900.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibmplexmono-400.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/ibmplexmono-500.woff2') format('woff2'); }
+
         /* ══════════════════════════════════════════════════════════════════
            04-f4 — "TWO ANIMALS, ONE CAGE" / "IT'S A ZOO ON THE FLOOR"
            Broadside register: dark ground, cream text, fire-orange the only
@@ -65,10 +67,10 @@
           position: absolute;
           left: 106px;
           top: 50%;
-          transform: translateY(-50%);
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          gap: 14px;
           opacity: 0;
           will-change: transform, opacity;
         }
@@ -95,7 +97,6 @@
           height: 108px;
           flex-shrink: 0;
           opacity: 0;
-          transform: scale(0.4) rotate(-8deg);
           will-change: transform, opacity;
         }
         #g1_icon svg {
@@ -236,7 +237,7 @@
           gsap.set(g1Words, { opacity: 0 });
           gsap.set("#g1_phrase", { opacity: 0 });
 
-          gsap.set("#g1_climax", { opacity: 0, x: 90 });
+          gsap.set("#g1_climax", { opacity: 0, x: 90, yPercent: -50 });
           gsap.set("#g1_icon", { opacity: 0, scale: 0.4, rotation: -8 });
           gsap.set(["#g1_ring1", "#g1_ring2"], { opacity: 0, scale: 0.4 });
 

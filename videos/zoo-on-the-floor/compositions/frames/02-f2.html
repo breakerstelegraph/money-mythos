@@ -6,13 +6,15 @@
   </head>
   <body>
     <template>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;900&family=IBM+Plex+Mono:wght@500&display=swap"
-      />
-      <style>
+<style>
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/barlow-400.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/barlow-600.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/barlow-700.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/barlow-800.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/barlow-900.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibmplexmono-400.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/ibmplexmono-500.woff2') format('woff2'); }
+
         /* ══════════════════════════════════════════════════════════════════
            02-f2 — Verse 2 (BEARS) — Broadside "orange register"
            Two intro-kinetic-cascade groups, forked + reskinned:
@@ -33,11 +35,20 @@
           font-family:
             "Barlow", "Helvetica Neue", Arial, sans-serif;
         }
+        #stage {
+          position: absolute;
+          inset: 0;
+        }
         .group {
           position: absolute;
           inset: 0;
-          background: #e85d26;
+          /* no own background — #root already supplies the fire-orange ground;
+             this avoids the two groups being read as separate opaque
+             full-frame overlays that must each fade in/out */
         }
+        #g2 {
+          opacity: 0;
+        } /* hidden until its cut-in at 7.569s */
         /* A phrase-block = a left-anchored, flex-wrapped word run.
            5+ words → Broadside h2 ramp (4.5cqw ≈ 86px @ 1920 canvas). */
         .phrase-block {
@@ -49,8 +60,7 @@
           display: flex;
           flex-wrap: wrap;
           align-items: baseline;
-          column-gap: 0.28em;
-          row-gap: 0.06em;
+          gap: 0.06em 0.55em;
           opacity: 0;
           will-change: opacity;
         }
@@ -129,8 +139,10 @@
       </style>
 
       <div id="root" data-composition-id="02-f2" data-width="1920" data-height="1080" data-duration="14.953">
-        <div id="g1" class="group"></div>
-        <div id="g2" class="group"></div>
+        <div id="stage">
+          <div id="g1" class="group"></div>
+          <div id="g2" class="group"></div>
+        </div>
       </div>
 
       <script>
@@ -252,12 +264,12 @@
           // ── Group visibility swap (0ms hard cut at the group boundary) ──
           var g1El = document.getElementById("g1");
           var g2El = document.getElementById("g2");
-          gsap.set(g1El, { autoAlpha: 1 });
-          gsap.set(g2El, { autoAlpha: 0 });
-          tl.set(g1El, { autoAlpha: 1 }, 0);
-          tl.set(g2El, { autoAlpha: 0 }, 0);
-          tl.set(g1El, { autoAlpha: 0 }, 7.569);
-          tl.set(g2El, { autoAlpha: 1 }, 7.569);
+          gsap.set("#g1", { autoAlpha: 1 });
+          gsap.set("#g2", { autoAlpha: 0 });
+          tl.set("#g1", { autoAlpha: 1 }, 0);
+          tl.set("#g2", { autoAlpha: 0 }, 0);
+          tl.set("#g1", { autoAlpha: 0 }, 7.569);
+          tl.set("#g2", { autoAlpha: 1 }, 7.569);
 
           // ══ g1 — "BEARS SWIPE DOWN, THEY'RE SHORTING YOUR DREAM /
           //          BETTING IT BREAKS, BETTING IT BLEEDS"  (local 0 – 7.569) ══

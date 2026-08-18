@@ -9,6 +9,14 @@
   <body>
     <template>
       <style>
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/barlow-400.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/barlow-600.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/barlow-700.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/barlow-800.woff2') format('woff2'); }
+        @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/barlow-900.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/ibmplexmono-400.woff2') format('woff2'); }
+        @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/ibmplexmono-500.woff2') format('woff2'); }
+
         /* Root: styled by #root only (class-scoped rules are dropped when this
            file's CSS is compiled into the composited render — see
            hyperframes-core/references/sub-compositions.md, Pitfall 3). */
@@ -203,8 +211,9 @@
             WORD_STAGGER = 0.035,
             CUT = 0.08;
 
-          // ── baseline: everything hidden ──
-          gsap.set(["#g1", "#g2"], { autoAlpha: 1 });
+          // ── baseline: g1 visible (frame opens on it), g2 hidden until its cut-in ──
+          gsap.set("#g1", { autoAlpha: 1 });
+          gsap.set("#g2", { autoAlpha: 0 });
           gsap.set(
             [
               "#g1_l1",
