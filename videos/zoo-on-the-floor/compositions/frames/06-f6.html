@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- head is metadata only for this source file; the HyperFrames runtime discards
+         everything outside <template> when mounting this sub-composition. -->
+    <title>06-f6 — Broadside closing frame (tile-mosaic restart -> orange hook -> title stamp)</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        /* Root: styled by #root only (class-scoped rules are dropped when this
+           file's CSS is compiled into the composited render — see
+           hyperframes-core/references/sub-compositions.md, Pitfall 3). */
+        #root {
+          position: relative;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: #111111;
+          font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+        }
+        #stage {
+          position: absolute;
+          inset: 0;
+        }
+        .group {
+          position: absolute;
+          inset: 0;
+        }
+
+        /* ══════ GROUP 1 — poster-tile-mosaic (dark register) ══════ */
+        #g1 {
+          background: #111111;
+        }
+        .g1-wall {
+          position: absolute;
+          inset: 64px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .tile {
+          flex: 1 1 0;
+          display: flex;
+          align-items: center;
+          padding: 0 72px;
+          background: #f0ece5;
+          overflow: hidden;
+          will-change: transform, opacity, background-color;
+        }
+        .tile-label {
+          font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 900;
+          font-size: 150px;
+          line-height: 0.9;
+          letter-spacing: -0.03em;
+          text-transform: lowercase;
+          color: #111111;
+          white-space: nowrap;
+        }
+
+        /* ══════ GROUP 2 / GROUP 3 — editorial line stack, left-anchored ══════ */
+        #g2 {
+          background: #e85d26;
+          color: #111111;
+        }
+        #g3 {
+          background: #111111;
+          color: #f0ece5;
+        }
+        .line {
+          position: absolute;
+          left: 106px;
+          right: 106px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 0 0.32em;
+          opacity: 0;
+          will-change: opacity;
+          text-transform: lowercase;
+          font-weight: 900;
+        }
+        .w {
+          display: inline-block;
+          opacity: 0;
+          will-change: opacity;
+        }
+        #g2 .climax {
+          color: #111111; /* ink-on-fire is absolute — no second accent on the orange register */
+        }
+        #g3 .climax {
+          color: #e85d26; /* one orange clause, per Broadside statement treatment */
+        }
+
+        .size-h1 {
+          font-size: 144px;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          line-height: 0.9;
+        }
+        .size-display {
+          font-size: 250px;
+          font-weight: 900;
+          letter-spacing: -0.04em;
+          line-height: 0.88;
+        }
+
+        /* ── climax icon: sparkle pop + expanding rings ── */
+        .icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 110px;
+          height: 110px;
+          flex-shrink: 0;
+          opacity: 0;
+          overflow: visible;
+        }
+        .icon-glyph {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 110px;
+          height: 110px;
+          transform-origin: 50% 50%;
+        }
+        .icon-glyph svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #g2 .icon-glyph {
+          color: #111111;
+        }
+        #g3 .icon-glyph {
+          color: #e85d26;
+        }
+        .ring {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 143px;
+          height: 143px;
+          border-radius: 50%;
+          border: 3px solid rgba(17, 17, 17, 0.55);
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.4);
+        }
+        .ring.ring2 {
+          border-color: rgba(17, 17, 17, 0.25);
+        }
+        #g3 .ring {
+          border-color: rgba(232, 93, 38, 0.55);
+        }
+        #g3 .ring.ring2 {
+          border-color: rgba(232, 93, 38, 0.25);
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="06-f6"
+        data-width="1920"
+        data-height="1080"
+        data-duration="19.12"
+      >
+        <div id="stage">
+          <!-- ══════ GROUP 1 — local 0.0–7.877s — cold VOID restart -> tile mosaic accumulate -> recolor on the roll ══════ -->
+          <div id="g1" class="group">
+            <div class="g1-wall">
+              <div id="g1_tile1" class="tile"><span class="tile-label">welcome</span></div>
+              <div id="g1_tile2" class="tile"><span class="tile-label">to the</span></div>
+              <div id="g1_tile3" class="tile"><span class="tile-label">jungle</span></div>
+            </div>
+          </div>
+
+          <!-- ══════ GROUP 2 — local 7.877–15.0s — "WHERE THE MONEY MAKES THE KARMA" (orange hook, ORANGE register) ══════ -->
+          <div id="g2" class="group">
+            <div id="g2_l1" class="line size-h1">
+              <span class="w">where</span><span class="w">the</span><span class="w">money</span>
+            </div>
+            <div id="g2_l2" class="line size-display">
+              <span class="w">makes</span><span class="w">the</span
+              ><span id="g2_climax" class="w climax">karma</span>
+              <span id="g2_icon" class="icon">
+                <span class="ring"></span>
+                <span class="ring ring2"></span>
+                <span class="icon-glyph">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <!-- ══════ GROUP 3 — local 15.0–19.12s — "IT'S A ZOO ON THE FLOOR." (closing title stamp, DARK register) ══════ -->
+          <div id="g3" class="group">
+            <div id="g3_l1" class="line size-h1">
+              <span class="w">it's</span><span class="w">a</span><span class="w">zoo</span>
+            </div>
+            <div id="g3_l2" class="line size-display">
+              <span class="w">on</span><span class="w">the</span
+              ><span id="g3_climax" class="w climax">floor.</span>
+              <span id="g3_icon" class="icon">
+                <span class="ring"></span>
+                <span class="ring ring2"></span>
+                <span class="icon-glyph">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          var tl = gsap.timeline({ paused: true });
+
+          var CUT = 0.08;
+          var CREAM = "#f0ece5";
+          var FIRE = "#e85d26";
+
+          // ── baseline: everything hidden ──
+          gsap.set(["#g1", "#g2", "#g3"], { autoAlpha: 1 });
+          gsap.set(["#g1_tile1", "#g1_tile2", "#g1_tile3"], { autoAlpha: 0, scale: 0.85 });
+          gsap.set(["#g2_l1", "#g2_l2", "#g3_l1", "#g3_l2"], { opacity: 0 });
+          gsap.set(".w", { opacity: 0 });
+          gsap.set(["#g2_icon", "#g3_icon"], { opacity: 0 });
+          gsap.set(document.querySelectorAll("#g2_icon .icon-glyph, #g3_icon .icon-glyph"), {
+            scale: 0.4,
+            rotation: -8,
+            opacity: 0,
+          });
+          gsap.set(document.querySelectorAll("#g2_icon .ring, #g3_icon .ring"), {
+            opacity: 0,
+            scale: 0.4,
+          });
+
+          // reveal a line's words at explicit per-word times; hard-cut it out at `cutAt` (if given)
+          function wireLineTimes(lineSel, times, cutAt) {
+            var line = document.querySelector(lineSel);
+            var words = line.querySelectorAll(".w");
+            tl.set(lineSel, { opacity: 1 }, times[0]);
+            words.forEach(function (w, i) {
+              tl.to(
+                w,
+                { opacity: 1, duration: 0.16, ease: "power2.out", overwrite: "auto" },
+                times[i],
+              );
+            });
+            if (cutAt != null) {
+              tl.to(
+                lineSel,
+                { opacity: 0, duration: CUT, ease: "power2.in", overwrite: "auto" },
+                cutAt,
+              );
+            }
+          }
+
+          // pop the climax icon + expanding rings at `at` — tightened so it fully
+          // settles well inside the group's own window (never a mid-motion cutoff
+          // at the frame boundary, critical for g3 which ends the whole video).
+          function wireIcon(prefix, at) {
+            var icon = document.getElementById(prefix + "_icon");
+            var glyph = icon.querySelector(".icon-glyph");
+            var rings = icon.querySelectorAll(".ring");
+            tl.to(icon, { opacity: 1, duration: 0.22, ease: "power3.out", overwrite: "auto" }, at);
+            tl.fromTo(
+              glyph,
+              { scale: 0.4, rotation: -8, opacity: 0 },
+              {
+                scale: 1,
+                rotation: 0,
+                opacity: 1,
+                duration: 0.3,
+                ease: "back.out(2.4)",
+                overwrite: "auto",
+              },
+              at + 0.05,
+            );
+            tl.to(
+              glyph,
+              { rotation: 12, duration: 0.08, ease: "power2.out", overwrite: "auto" },
+              at + 0.35,
+            );
+            tl.to(
+              glyph,
+              { rotation: 0, duration: 0.45, ease: "power3.out", overwrite: "auto" },
+              at + 0.43,
+            );
+            tl.fromTo(
+              rings,
+              { scale: 0.4, opacity: 0.5 },
+              { scale: 1.4, opacity: 0, duration: 0.45, ease: "power2.out", stagger: 0.12 },
+              at + 0.28,
+            );
+          }
+
+          // recolor the wall as a unit — a hit, not a fade — with a punchy scale beat
+          function recolorWall(t, bg) {
+            var sel = ["#g1_tile1", "#g1_tile2", "#g1_tile3"];
+            tl.set(sel, { backgroundColor: bg }, t);
+            tl.to(sel, { scale: 1.04, duration: 0.05, ease: "power2.out", overwrite: "auto" }, t);
+            tl.to(
+              sel,
+              { scale: 1, duration: 0.12, ease: "power2.out", overwrite: "auto" },
+              t + 0.05,
+            );
+          }
+
+          // ══════ GROUP 1 — poster-tile-mosaic — program: accumulate-then-recolor-on-roll ══════
+          // anchors (frame-local, track sec minus 72.0): 1.68, 2.75, 4.02, 4.86, 5.51, 6.6
+          // 0.0–1.68 : cold VOID — ink-black ground, nothing on it
+          // ACCUMULATE — tiles pop in one at a time, top to bottom
+          tl.fromTo(
+            "#g1_tile1",
+            { autoAlpha: 0, scale: 0.85 },
+            { autoAlpha: 1, scale: 1, duration: 0.14, ease: "back.out(1.7)", overwrite: "auto" },
+            1.68,
+          );
+          tl.fromTo(
+            "#g1_tile2",
+            { autoAlpha: 0, scale: 0.85 },
+            { autoAlpha: 1, scale: 1, duration: 0.14, ease: "back.out(1.7)", overwrite: "auto" },
+            2.75,
+          );
+          tl.fromTo(
+            "#g1_tile3",
+            { autoAlpha: 0, scale: 0.85 },
+            { autoAlpha: 1, scale: 1, duration: 0.14, ease: "back.out(1.7)", overwrite: "auto" },
+            4.02,
+          );
+          // RECOLOR ON THE ROLL — the whole wall snaps color as a unit, building to the climax
+          recolorWall(4.86, FIRE); // hit 1 — fire-orange
+          recolorWall(5.51, CREAM); // hit 2 — snap back to cream
+          recolorWall(6.6, FIRE); // hit 3 — locks fire-orange, holds into g2's orange bleed
+
+          // group boundary — 0ms autoAlpha swap
+          tl.set("#g1", { autoAlpha: 1 }, 0);
+          tl.set("#g2", { autoAlpha: 0 }, 0);
+          tl.set("#g3", { autoAlpha: 0 }, 0);
+          tl.set("#g1", { autoAlpha: 0 }, 7.877);
+          tl.set("#g2", { autoAlpha: 1 }, 7.877);
+
+          // ══════ GROUP 2 — "WHERE THE MONEY MAKES THE KARMA" — the hook lands ══════
+          // phrase anchors (track sec minus 72.0): 8.2, 9.32, 10.64, 11.78, 13.36
+          // climax {in: 13.36, iconAt: 14.19}
+          wireLineTimes("#g2_l1", [8.2, 9.32, 10.64], 11.78 - CUT);
+          wireLineTimes("#g2_l2", [11.78, 13.36, 13.36], null); // "the" + "karma" land together, holds to group end
+          wireIcon("g2", 14.19);
+
+          tl.set("#g2", { autoAlpha: 0 }, 15.0);
+          tl.set("#g3", { autoAlpha: 1 }, 15.0);
+
+          // ══════ GROUP 3 — "IT'S A ZOO ON THE FLOOR." — closing title stamp, held final frame ══════
+          // phrase anchors (track sec minus 72.0): 15.21, 15.75, 16.47, 17.19
+          // climax {in: 17.19, iconAt: 18.0} — settles by ~18.9, leaving stillness to 19.12
+          wireLineTimes("#g3_l1", [15.21, 15.75, 16.47], 17.19 - CUT);
+          wireLineTimes("#g3_l2", [17.19, 17.19, 17.19], null); // "on the floor." lands as one hit, holds to frame end
+          wireIcon("g3", 18.0);
+
+          tl.seek(0);
+          window.__timelines["06-f6"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
