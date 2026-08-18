@@ -54,11 +54,14 @@
         .stmt-line {
           font-family: "Barlow", sans-serif;
           font-weight: 800;
-          font-size: 7.5cqw;
-          line-height: 1.1;
+          font-size: 4.5cqw;
+          line-height: 1.15;
           letter-spacing: -0.03em;
           text-transform: lowercase;
           white-space: nowrap;
+          display: flex;
+          align-items: baseline;
+          column-gap: 0.28em;
         }
         #g1 .stmt-line {
           color: #f0ece5;
@@ -102,11 +105,12 @@
           background: #111111;
         }
 
-        /* ── climax icon (sparkle) ── */
+        /* ── climax icon (sparkle) — inline, sits right after the keyword ── */
         .spark {
-          position: absolute;
-          width: 3.2cqw;
-          height: 3.2cqw;
+          display: inline-flex;
+          flex-shrink: 0;
+          width: 0.85em;
+          height: 0.85em;
           opacity: 0;
           will-change: opacity, transform;
         }
@@ -140,8 +144,8 @@
           color: #f0ece5;
           font-family: "Barlow", sans-serif;
           font-weight: 800;
-          font-size: 6.4cqw;
-          line-height: 1.15;
+          font-size: 4.8cqw;
+          line-height: 1.2;
           letter-spacing: -0.03em;
           text-transform: lowercase;
           max-width: 84cqw;
@@ -191,11 +195,9 @@
                 <span class="word" id="g1_w8">starts</span>
                 <span class="word" id="g1_w9">to</span>
                 <span class="kw" id="g1_kw">tire</span>
+                <span class="spark" id="g1_spark"><svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg></span>
               </div>
               <div class="rule" id="g1_rule"></div>
-            </div>
-            <div class="spark" id="g1_spark" style="left: 5.5cqw; top: 34cqh">
-              <svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg>
             </div>
           </div>
 
@@ -214,11 +216,9 @@
                 <span class="word" id="g2_w6">spread</span>
                 <span class="word" id="g2_w7">catches</span>
                 <span class="kw" id="g2_kw">fire</span>
+                <span class="spark" id="g2_spark"><svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg></span>
               </div>
               <div class="rule" id="g2_rule"></div>
-            </div>
-            <div class="spark" id="g2_spark" style="left: 5.5cqw; top: 34cqh">
-              <svg viewBox="0 0 24 24"><path d="M12 1.8l2.1 6.9 6.9 2.1-6.9 2.1L12 19.8l-2.1-6.9L3 10.8l6.9-2.1z" /></svg>
             </div>
           </div>
 
